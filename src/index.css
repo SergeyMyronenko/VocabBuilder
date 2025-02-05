@@ -1,18 +1,144 @@
+@import-normalize;
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display Bold"),
+    url("./fonts/MacPawFixelDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display ExtraBold"),
+    url("./fonts/MacPawFixelDisplay-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display Light"),
+    url("./fonts/MacPawFixelDisplay-Light.otf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display Medium"),
+    url("./fonts/MacPawFixelDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display Regular"),
+    url("./fonts/MacPawFixelDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display SemiBold"),
+    url("./fonts/MacPawFixelDisplay-SemiBold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: local("MacPaw Fixel Display Thin"),
+    url("./fonts/MacPawFixelDisplay-Thin.otf") format("opentype");
+  font-weight: 100;
+}
+
+/* SF Pro Display */
+@font-face {
+  font-family: "SF Pro Display";
+  src: local("SF Pro Display Light"),
+    url("./fonts/SF-Pro-Display-Light.otf") format("opentype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: local("SF Pro Display Regular"),
+    url("./fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
 :root {
   --font-family: "MacPaw Fixel Display", sans-serif;
   --second-family: "SF Pro Display", sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
 
   --text-color: #121417;
   --accent-color: #85aa9f;
   --white: #fcfcfc;
   --white-1: #f8f8f8;
+  --link: rgba(18, 20, 23, 0.5);
 
+  font-family: var(--font-family);
+  font-weight: 400;
+  color: var(--text-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  max-width: 375px;
+  margin: 0 auto;
+  /* padding: 0 16px; */
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 1440px;
+  }
 }
