@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="Vocab-builder/" element={<Layout />}>
         <Route index element={<MainPage />} />
-        <Route path="registration" element={<RegisterPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="dictionary" element={<DictionaryPage />} />
       </Route>
