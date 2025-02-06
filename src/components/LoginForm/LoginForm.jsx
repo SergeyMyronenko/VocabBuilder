@@ -1,7 +1,7 @@
-import css from "./RegisterForm.module.css";
 import { useForm } from "react-hook-form";
+import css from "./LoginForm.module.css";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
@@ -11,12 +11,6 @@ export const RegisterForm = () => {
   return (
     <div className={css.wrapper}>
       <form className={css.form} onSubmit={handleSubmit}>
-        <input
-          className={css.input}
-          {...register("Name", { required: true })}
-          placeholder="Name"
-        />
-        {errors.Name && <p>Name is required</p>}
         <input
           className={css.input}
           {...register("Email", { required: true })}
@@ -30,12 +24,12 @@ export const RegisterForm = () => {
         />
         {errors.Password && <p>Password is required</p>}
         <button className={css.button} type="submit">
-          Register
+          Login
         </button>
       </form>
 
       <a className={css.link} href="Vocab-builder/login">
-        Log In
+        Register
       </a>
     </div>
   );

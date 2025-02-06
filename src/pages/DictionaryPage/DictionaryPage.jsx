@@ -1,3 +1,9 @@
+import { Dashboard } from "../../components/Dashboard/Dashboard";
+
 export const DictionaryPage = () => {
-  return <h2>Dictionary Page</h2>;
+  return (
+    <div>
+      <Dashboard />
+    </div>
+  );
 };
