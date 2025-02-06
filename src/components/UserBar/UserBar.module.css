@@ -1,0 +1,21 @@
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.icon {
+  fill: rgba(252, 252, 252, 0.7);
+  width: 14px;
+  height: 14px;
+}

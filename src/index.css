@@ -1,4 +1,4 @@
-@import-normalize;
+/* @import-normalize; */
 
 @font-face {
   font-family: "MacPaw Fixel Display";
@@ -81,8 +81,7 @@ body {
 img,
 picture,
 video,
-canvas,
-svg {
+canvas {
   display: block;
   max-width: 100%;
 }

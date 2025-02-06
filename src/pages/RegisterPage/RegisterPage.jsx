@@ -1,4 +1,4 @@
-import { Form } from "../../components/RegisterForm/RegisterForm";
+import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
 import image from "../../image/illustration.jpg";
 import css from "./RegisterPage.module.css";
 
@@ -12,7 +12,7 @@ export const RegisterPage = () => {
           To start using our services, please fill out the registration form
           below. All fields are mandatory:
         </p>
-        <Form />
+        <RegisterForm />
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+.wrapper {
+  /* display: flex;
+  align-items: center; */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+}
+
+.icon {
+  width: 32px;
+  height: 22px;
+  stroke: var(--text-color);
+}
