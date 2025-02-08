@@ -1,9 +1,10 @@
+import { MainLogo } from "../../components/MainLogo/MainLogo";
 import css from "./MainPage.module.css";
 
 export const MainPage = () => {
   return (
-    <div>
-      <h2 className={css.title}>This is Main Page</h2>
+    <div className={css.mainWrapper}>
+      <MainLogo bgColor={"white"} />
     </div>
   );
 };

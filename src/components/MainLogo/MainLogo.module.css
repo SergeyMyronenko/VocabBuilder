@@ -1,0 +1,40 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.logo {
+  fill: var(--white);
+  width: 24px;
+  height: 24px;
+}
+
+.logoBg {
+  background-color: var(--white);
+}
+
+.svgBg {
+  fill: var(--accent-color);
+}
+
+.logoTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33em;
+  color: var(--black);
+}
+
+.titleBg {
+  color: var(--white);
+}

@@ -5,28 +5,6 @@
   background-color: var(--white);
 }
 
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logoLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: var(--accent-color);
-}
-
-.logo {
-  fill: var(--white);
-  width: 24px;
-  height: 24px;
-}
-
 .navBlock {
   display: flex;
   gap: 8px;
