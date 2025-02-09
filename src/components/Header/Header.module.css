@@ -10,3 +10,18 @@
   gap: 8px;
   align-items: center;
 }
+
+.modal {
+  display: block;
+  background-color: var(--accent-color);
+}
+
+.iconClose {
+  width: 32px;
+  height: 32px;
+  stroke: var(--white);
+}
+
+.modalHeader {
+  display: flex;
+}

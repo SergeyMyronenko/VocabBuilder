@@ -4,6 +4,13 @@
   gap: 8px;
 }
 
+.userTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: var(--text-color);
+}
+
 .iconBox {
   display: flex;
   justify-content: center;
@@ -16,6 +23,18 @@
 
 .icon {
   fill: rgba(252, 252, 252, 0.7);
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
+}
+
+.iconBoxWhite {
+  background-color: var(--white);
+}
+
+.iconBg {
+  fill: var(--accent-color);
+}
+
+.userTitleWhite {
+  color: var(--white);
 }
