@@ -1,3 +1,11 @@
+.mainWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  height: 100vh;
+}
+
 .title {
   font-family: var(--font-family);
   font-weight: 600;

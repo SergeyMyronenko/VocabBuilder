@@ -1,33 +1,85 @@
+.headerBlock {
+  position: relative;
+}
+
 .headerWrapper {
   display: flex;
   justify-content: space-between;
   padding: 16px;
-}
-
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logoLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: var(--accent-color);
-}
-
-.logo {
-  fill: var(--white);
-  width: 24px;
-  height: 24px;
+  background-color: var(--white);
 }
 
 .navBlock {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  background-color: red;
+  height: 100vh;
+  padding: 16px;
+  background-image: url("../../image/illustration-modal.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 185px;
+}
+
+.iconClose {
+  width: 32px;
+  height: 32px;
+  stroke: var(--white);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkList {
+  margin-top: 166px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0;
+}
+
+.linkItem {
+  border-radius: 15px;
+  padding: 12px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.linkItemActive {
+  border-radius: 15px;
+  padding: 12px 20px;
+  background-color: var(--white);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+  gap: 6px;
+}
+
+.iconOut {
+  width: 16px;
+  height: 16px;
+  stroke: var(--white);
+  fill: none;
 }

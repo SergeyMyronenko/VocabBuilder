@@ -104,6 +104,15 @@ h6 {
   overflow-wrap: break-word;
 }
 
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 :root {
   --font-family: "MacPaw Fixel Display", sans-serif;
   --second-family: "SF Pro Display", sans-serif;
@@ -111,9 +120,10 @@ h6 {
 
   --text-color: #121417;
   --accent-color: #85aa9f;
-  --white: #fcfcfc;
+  --white: #fff;
   --white-1: #f8f8f8;
   --link: rgba(18, 20, 23, 0.5);
+  --bg-color: rgba(133, 170, 159, 0.1);
 
   font-family: var(--font-family);
   font-weight: 400;
