@@ -1,17 +1,10 @@
-.userBox {
+.logoWrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 }
 
-.userTitle {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5em;
-  color: var(--text-color);
-}
-
-.iconBox {
+.logoLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,20 +14,27 @@
   background-color: var(--accent-color);
 }
 
-.icon {
-  fill: rgba(252, 252, 252, 0.7);
-  width: 20px;
-  height: 20px;
+.logo {
+  fill: var(--white);
+  width: 24px;
+  height: 24px;
 }
 
-.iconBoxWhite {
+.logoBg {
   background-color: var(--white);
 }
 
-.iconBg {
+.svgBg {
   fill: var(--accent-color);
 }
 
-.userTitleWhite {
+.logoTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33em;
+  color: var(--black);
+}
+
+.titleBg {
   color: var(--white);
 }
