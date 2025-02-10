@@ -1,3 +1,7 @@
+.headerBlock {
+  position: relative;
+}
+
 .headerWrapper {
   display: flex;
   justify-content: space-between;
@@ -12,8 +16,18 @@
 }
 
 .modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
   display: block;
-  background-color: var(--accent-color);
+  background-color: red;
+  height: 100vh;
+  padding: 16px;
+  background-image: url("../../image/illustration-modal.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 185px;
 }
 
 .iconClose {
@@ -24,4 +38,48 @@
 
 .modalHeader {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkList {
+  margin-top: 166px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0;
+}
+
+.linkItem {
+  border-radius: 15px;
+  padding: 12px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.linkItemActive {
+  border-radius: 15px;
+  padding: 12px 20px;
+  background-color: var(--white);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+  gap: 6px;
+}
+
+.iconOut {
+  width: 16px;
+  height: 16px;
+  stroke: var(--white);
+  fill: none;
 }

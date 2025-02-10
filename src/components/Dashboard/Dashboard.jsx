@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import css from "./Dashboard.module.css";
+import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
   const { register } = useForm();
@@ -42,6 +43,25 @@ export const Dashboard = () => {
           </svg>
         </div>
       </form>
+      <p className={css.text}>
+        To study: <span className={css.textValue}>20</span>
+      </p>
+      <div className={css.wordBox}>
+        <div className={css.wordBoxText}>
+          <p>Add word</p>
+          <svg className={css.iconWordBox}>
+            <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
+          </svg>
+        </div>
+        <div className={css.wordBoxText}>
+          <p>Train oneself</p>
+          <Link to="/training">
+            <svg className={css.iconWordBox}>
+              <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
+            </svg>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
