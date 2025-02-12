@@ -7,6 +7,7 @@ import {
   HeaderCell,
   Cell,
 } from "@table-library/react-table-library/table";
+import { useTheme } from "@table-library/react-table-library/theme";
 
 import css from "./WordTable.module.css";
 import { useState } from "react";
@@ -27,16 +28,60 @@ export const WordTable = () => {
     ],
   });
 
+  const customTheme = {
+    Table: `
+       display: grid;  
+      grid-template-columns: 82px 116px 96px 49px;  
+      width: 100%;
+      padding: 0 16px;
+    `,
+    Header: `
+    border-radius: 8px 8px 0 0;
+    `,
+    HeaderRow: `
+    width: 100%;
+    background-color:rgba(133, 170, 159, 0.1);;
+     
+    `,
+    HeaderCell: `
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    padding: 16px 14px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-color);
+    
+    `,
+    Body: `
+    background-color: var(--white);
+    `,
+    Cell: `
+    padding: 16px 14px;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    justify-items: flex-start;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--black);
+    word-break: keep-all;
+    `,
+  };
+
+  const theme = useTheme(customTheme);
+
   return (
-    <Table data={data} className={css.wrapper}>
+    <Table data={data} theme={theme}>
       {(tableList) => (
         <>
           <Header>
             <HeaderRow>
-              <HeaderCell className={css.tableTitle}>Word</HeaderCell>
-              <HeaderCell className={css.tableTitle}>Translation</HeaderCell>
-              <HeaderCell className={css.tableTitle}>Progress</HeaderCell>
-              <HeaderCell className={css.tableTitle}></HeaderCell>
+              <HeaderCell>Word</HeaderCell>
+              <HeaderCell>Translation</HeaderCell>
+              <HeaderCell>Progress</HeaderCell>
+              <HeaderCell></HeaderCell>
             </HeaderRow>
           </Header>
 
@@ -47,8 +92,8 @@ export const WordTable = () => {
                 <Cell>{item.translation}</Cell>
                 <Cell>{item.progress}</Cell>
                 <Cell>
-                  <button>
-                    <p>. . .</p>
+                  <button className={css.button}>
+                    <p className={css.text}>...</p>
                   </button>
                 </Cell>
               </Row>
