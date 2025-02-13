@@ -1,0 +1,71 @@
+.container {
+  padding: 0 16px;
+}
+
+.table {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 82px 116px 96px 49px;
+  width: 100%;
+}
+
+.tableRow {
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+}
+
+.bodyTableRow {
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+}
+
+.bodyTableRow:last-child {
+  border-right: none;
+}
+
+.bodyTableRow::first-letter {
+  text-transform: capitalize;
+}
+
+.tableRow:last-child {
+  border-right: none;
+}
+
+.bodyTable {
+  background-color: var(--white);
+}
+
+.button {
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.text {
+  background-color: var(--white);
+}
+
+.title {
+  background-color: rgba(133, 170, 159, 0.1);
+}
+
+.modal {
+  background-color: var(--white);
+  padding: 12px 24px;
+}
+
+.iconModal {
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  stroke: var(--accent-color);
+}
+
+.buttonModal {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-color);
+  background-color: transparent;
+  text-align: start;
+}

@@ -1,11 +1,13 @@
 import { Dashboard } from "../../components/Dashboard/Dashboard";
-import { WordTable } from "../../components/WordsTable/WordsTable";
+// import { WordsTable } from "../../components/WordsTable/WordsTable";
+import { WordsTable } from "../../components/WordsTable/WordsTable";
 
 export const DictionaryPage = () => {
   return (
     <div>
       <Dashboard />
-      <WordTable />
+      <WordsTable />
+      {/* <WordTable /> */}
     </div>
   );
 };
