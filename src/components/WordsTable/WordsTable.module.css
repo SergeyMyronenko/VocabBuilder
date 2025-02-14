@@ -5,9 +5,8 @@
 .table {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 82px 116px 96px 49px;
   width: 100%;
+  table-layout: fixed;
 }
 
 .tableRow {
@@ -16,8 +15,22 @@
 }
 
 .bodyTableRow {
+  width: 82px;
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
+}
+
+.tableRow:nth-child(1) {
+  width: 82px;
+}
+.tableRow:nth-child(2) {
+  width: 116px;
+}
+.tableRow:nth-child(3) {
+  width: 95px;
+}
+.tableRow:nth-child(4) {
+  width: 50px;
 }
 
 .bodyTableRow:last-child {
@@ -28,12 +41,24 @@
   text-transform: capitalize;
 }
 
+.bodyTableRow:nth-child(3) {
+  text-align: center;
+}
+
+.bodyTableRow:nth-child(4) {
+  text-align: center;
+}
+
 .tableRow:last-child {
   border-right: none;
 }
 
 .bodyTable {
   background-color: var(--white);
+}
+
+.table .rowList {
+  vertical-align: top;
 }
 
 .button {
@@ -54,11 +79,19 @@
   padding: 12px 24px;
 }
 
+.buttonModal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
 .iconModal {
   width: 16px;
   height: 16px;
   background-color: transparent;
   stroke: var(--accent-color);
+  fill: none;
 }
 
 .buttonModal {

@@ -1,0 +1,52 @@
+.paginationBox {
+  display: flex;
+  width: 100%;
+  height: 32px;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 32px 24px 48px 24px;
+}
+
+.buttonBlock {
+  display: flex;
+  gap: 10px;
+}
+
+.numberList {
+  display: flex;
+  gap: 10px;
+}
+
+.numberListItem {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeNumber {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+.buttonIcon {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconSvg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--text-color);
+  fill: var(--text-color);
+}

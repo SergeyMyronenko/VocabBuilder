@@ -1,8 +1,14 @@
 import { CircularProgress, Typography, Box } from "@mui/material";
 
+// eslint-disable-next-line react/prop-types
 export const ProgressBar = ({ value }) => {
   return (
-    <Box sx={{ position: "relative", display: "inline-flex" }}>
+    <Box
+      sx={{
+        position: "relative",
+        display: "inline-flex",
+      }}
+    >
       <CircularProgress variant="determinate" {...value} />
       <Box
         sx={{
@@ -14,6 +20,8 @@ export const ProgressBar = ({ value }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          width: "24px",
+          height: "24px",
         }}
       >
         <Typography

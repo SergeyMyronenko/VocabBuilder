@@ -9,17 +9,23 @@ import {
   Popper,
   Fade,
   Paper,
+  Modal,
+  Box,
 } from "@mui/material";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useEffect, useRef, useState } from "react";
 import css from "./WordsTable.module.css";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
+import sprite from "/public/sprite.svg";
 
 export const WordsTable = () => {
   const [anchorEl, setAnchorEl] = useState("bottom-end");
   const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+
   const [placement, setPlacement] = useState();
 
-  const [data, setData] = useState([
+  const [data] = useState([
     { id: 1, name: "apple", translation: "яблуко", progress: 50 },
     { id: 2, name: "car", translation: "авто", progress: 70 },
     { id: 3, name: "house", translation: "будинок", progress: 30 },
@@ -32,11 +38,38 @@ export const WordsTable = () => {
     { id: 10, name: "window", translation: "вікно", progress: 55 },
   ]);
 
+  const { register, handleSubmit } = useForm();
+
+  const popperRef = useRef(null);
+
+  const handleOpen = () => setOpenEdit(true);
+  const handleClose = () => setOpenEdit(false);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => !prev);
     setPlacement("bottom-end");
   };
+
+  const handleClosePopup = (event) => {
+    if (
+      popperRef.current &&
+      !popperRef.current.contains(event.target) &&
+      !anchorEl.contains(event.target)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClosePopup);
+      return () => {
+        document.removeEventListener("mousedown", handleClosePopup);
+      };
+    }
+  }, [open]);
+
   return (
     <div>
       <TableContainer className={css.container}>
@@ -51,7 +84,7 @@ export const WordsTable = () => {
           </TableHead>
           <TableBody className={css.bodyTable}>
             {data.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} className={css.rowList}>
                 <TableCell className={css.bodyTableRow}>{item.name}</TableCell>
                 <TableCell className={css.bodyTableRow}>
                   {item.translation}
@@ -76,9 +109,14 @@ export const WordsTable = () => {
         anchorEl={anchorEl}
         placement={placement}
         transition
+        ref={popperRef}
       >
         {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
+          <Fade
+            {...TransitionProps}
+            timeout={350}
+            sx={{ borderRadius: "16px" }}
+          >
             <Paper>
               <Typography
                 sx={{
@@ -88,15 +126,15 @@ export const WordsTable = () => {
                   gap: "8px",
                 }}
               >
-                <button className={css.buttonModal}>
+                <button className={css.buttonModal} onClick={handleOpen}>
                   <svg className={css.iconModal}>
-                    <use href="/Vocab-builder/sprite#icon-edit-01"></use>
+                    <use href={`${sprite}#icon-edit-01`}></use>
                   </svg>
                   Edit
                 </button>
                 <button className={css.buttonModal}>
                   <svg className={css.iconModal}>
-                    <use href="/Vocab-builder/sprite#icon-trash"></use>
+                    <use href={`${sprite}#icon-trash`}></use>
                   </svg>
                   Delete
                 </button>
@@ -105,6 +143,52 @@ export const WordsTable = () => {
           </Fade>
         )}
       </Popper>
+
+      {/* ----- Edit Modal ----- */}
+
+      <Modal
+        open={openEdit}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box
+          sx={{
+            borderRadius: "16px",
+            backgroundColor: "var(--accent-color)",
+            width: "343px",
+            padding: "16px",
+          }}
+        >
+          <form onSubmit={handleSubmit}>
+            <div>
+              <img src="" alt="" />
+              <p>Ukraine</p>
+            </div>
+            <input
+              className={css.input}
+              {...register("uaword", { required: true })}
+            />
+            <div>
+              <img src="" alt="" />
+              <p>English</p>
+            </div>
+            <input
+              className={css.input}
+              {...register("ukword", { required: true })}
+            />
+            <div>
+              <button
+                type="submit
+              "
+              >
+                Save
+              </button>
+              <button type="button">Cancel</button>
+            </div>
+          </form>
+        </Box>
+      </Modal>
     </div>
   );
 };
