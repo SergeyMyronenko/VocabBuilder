@@ -5,9 +5,8 @@
 .table {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 82px 116px 96px 49px;
   width: 100%;
+  table-layout: fixed;
 }
 
 .tableRow {
@@ -16,8 +15,22 @@
 }
 
 .bodyTableRow {
+  width: 82px;
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
+}
+
+.tableRow:nth-child(1) {
+  width: 82px;
+}
+.tableRow:nth-child(2) {
+  width: 116px;
+}
+.tableRow:nth-child(3) {
+  width: 95px;
+}
+.tableRow:nth-child(4) {
+  width: 50px;
 }
 
 .bodyTableRow:last-child {
@@ -28,12 +41,24 @@
   text-transform: capitalize;
 }
 
+.bodyTableRow:nth-child(3) {
+  text-align: center;
+}
+
+.bodyTableRow:nth-child(4) {
+  text-align: center;
+}
+
 .tableRow:last-child {
   border-right: none;
 }
 
 .bodyTable {
   background-color: var(--white);
+}
+
+.table .rowList {
+  vertical-align: top;
 }
 
 .button {
@@ -54,11 +79,19 @@
   padding: 12px 24px;
 }
 
+.buttonModal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
 .iconModal {
   width: 16px;
   height: 16px;
   background-color: transparent;
   stroke: var(--accent-color);
+  fill: none;
 }
 
 .buttonModal {
@@ -68,4 +101,54 @@
   color: var(--text-color);
   background-color: transparent;
   text-align: start;
+}
+
+.modalClose {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  stroke: var(--white);
+  top: 16px;
+  right: 16px;
+}
+
+.titleText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  height: 48px;
+  background-color: transparent;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.buttonBox {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.buttonSave {
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 12px 60px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.buttonCancel {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  border-radius: 30px;
+  padding: 12px 45px;
+  background-color: transparent;
+  color: var(--white);
 }

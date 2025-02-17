@@ -1,5 +1,5 @@
 import { Dashboard } from "../../components/Dashboard/Dashboard";
-// import { WordsTable } from "../../components/WordsTable/WordsTable";
+import { WordsPagination } from "../../components/WordsPagination/WordsPagination";
 import { WordsTable } from "../../components/WordsTable/WordsTable";
 
 export const DictionaryPage = () => {
@@ -7,7 +7,7 @@ export const DictionaryPage = () => {
     <div>
       <Dashboard />
       <WordsTable />
-      {/* <WordTable /> */}
+      <WordsPagination />
     </div>
   );
 };
