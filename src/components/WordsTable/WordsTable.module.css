@@ -102,3 +102,53 @@
   background-color: transparent;
   text-align: start;
 }
+
+.modalClose {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  stroke: var(--white);
+  top: 16px;
+  right: 16px;
+}
+
+.titleText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  height: 48px;
+  background-color: transparent;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.buttonBox {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.buttonSave {
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 12px 60px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.buttonCancel {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  border-radius: 30px;
+  padding: 12px 45px;
+  background-color: transparent;
+  color: var(--white);
+}

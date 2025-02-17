@@ -67,5 +67,12 @@
 <path fill="none" stroke="#85aa9f" style="stroke: var(--color1, #85aa9f)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M16 6.667v18.667"></path>
 <path fill="none" stroke="#85aa9f" style="stroke: var(--color1, #85aa9f)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M6.669 16h18.667"></path>
 </symbol>
+<symbol id="icon-empty-radio" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M16 1.778c7.855 0 14.222 6.367 14.222 14.222s-6.367 14.222-14.222 14.222c-7.855 0-14.222-6.367-14.222-14.222s6.367-14.222 14.222-14.222z"></path>
+</symbol>
+<symbol id="icon-checked-radio" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M16 1.778c7.855 0 14.222 6.367 14.222 14.222s-6.367 14.222-14.222 14.222c-7.855 0-14.222-6.367-14.222-14.222s6.367-14.222 14.222-14.222z"></path>
+<path d="M16 7.111c4.909 0 8.889 3.98 8.889 8.889s-3.98 8.889-8.889 8.889c-4.909 0-8.889-3.98-8.889-8.889s3.98-8.889 8.889-8.889z" fill="white"></path>
+</symbol>
 </defs>
 </svg>

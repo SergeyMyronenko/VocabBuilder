@@ -17,6 +17,8 @@ import { useEffect, useRef, useState } from "react";
 import css from "./WordsTable.module.css";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
 import sprite from "/public/sprite.svg";
+import uaImg from "../../image/ukraine.png";
+import ukImg from "../../image/united-kingdom.png";
 
 export const WordsTable = () => {
   const [anchorEl, setAnchorEl] = useState("bottom-end");
@@ -148,43 +150,58 @@ export const WordsTable = () => {
 
       <Modal
         open={openEdit}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <Box
           sx={{
             borderRadius: "16px",
             backgroundColor: "var(--accent-color)",
             width: "343px",
-            padding: "16px",
+            padding: "48px 16px",
+            position: "relative",
           }}
         >
           <form onSubmit={handleSubmit}>
-            <div>
-              <img src="" alt="" />
+            <svg className={css.modalClose} onClick={handleClose}>
+              <use href={`${sprite}#icon-close`}></use>
+            </svg>
+            <div className={css.titleText}>
+              <img src={uaImg} alt="ukrainian flag" />
               <p>Ukraine</p>
             </div>
             <input
               className={css.input}
               {...register("uaword", { required: true })}
             />
-            <div>
-              <img src="" alt="" />
+            <div className={css.titleText}>
+              <img src={ukImg} alt="uk flag" />
               <p>English</p>
             </div>
             <input
               className={css.input}
               {...register("ukword", { required: true })}
             />
-            <div>
+            <div className={css.buttonBox}>
               <button
+                className={css.buttonSave}
                 type="submit
               "
               >
                 Save
               </button>
-              <button type="button">Cancel</button>
+              <button
+                className={css.buttonCancel}
+                type="button"
+                onClick={handleClose}
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </Box>
