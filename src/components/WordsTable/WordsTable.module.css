@@ -9,15 +9,19 @@
   table-layout: fixed;
 }
 
-.tableRow {
+.table .tableRow {
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
+  font-weight: 500;
+  font-size: 16px;
 }
 
-.bodyTableRow {
+.table .bodyTableRow {
   width: 82px;
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .tableRow:nth-child(1) {

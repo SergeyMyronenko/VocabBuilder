@@ -21,11 +21,11 @@ import uaImg from "../../image/ukraine.png";
 import ukImg from "../../image/united-kingdom.png";
 
 export const WordsTable = () => {
-  const [anchorEl, setAnchorEl] = useState("bottom-end");
+  const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
 
-  const [placement, setPlacement] = useState();
+  const [placement, setPlacement] = useState("bottom-end");
 
   const [data] = useState([
     { id: 1, name: "apple", translation: "яблуко", progress: 50 },
@@ -72,6 +72,8 @@ export const WordsTable = () => {
     }
   }, [open]);
 
+  console.log(anchorEl);
+
   return (
     <div>
       <TableContainer className={css.container}>
@@ -108,7 +110,7 @@ export const WordsTable = () => {
       <Popper
         sx={{ zIndex: 20 }}
         open={open}
-        anchorEl={anchorEl}
+        anchorEl={popperRef.current}
         placement={placement}
         transition
         ref={popperRef}

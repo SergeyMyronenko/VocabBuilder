@@ -10,6 +10,8 @@ import ukImg from "../../image/united-kingdom.png";
 export const Dashboard = () => {
   const [add, setAdd] = useState(false);
   const [checked, setChecked] = useState("regular");
+  const [selectedCategory, setSelectedCategory] = useState("verb");
+
   const { register, handleSubmit } = useForm();
 
   const handleRadioChange = (value) => {
@@ -22,6 +24,10 @@ export const Dashboard = () => {
 
   const handleClose = () => {
     setAdd(false);
+  };
+
+  const handleSelectCategory = (e) => {
+    setSelectedCategory(e.target.value);
   };
 
   return (
@@ -40,9 +46,9 @@ export const Dashboard = () => {
         <div className={css.inputWrapper}>
           <select
             className={css.input}
-            name="Categories"
-            id="Categories"
-            {...register("category")}
+            name="CategoriesModal"
+            id="CategoriesModal"
+            {...register("categoryModal")}
           >
             <option value="">Categories</option>
             <option value="verb">Verb</option>
@@ -119,6 +125,8 @@ export const Dashboard = () => {
                 name="Categories"
                 id="Categories"
                 {...register("category")}
+                defaultValue="verb"
+                onChange={handleSelectCategory}
               >
                 <option value="verb">Verb</option>
                 <option value="participle">Participle</option>
@@ -135,60 +143,66 @@ export const Dashboard = () => {
               <svg className={css.iconArrowModal}>
                 <use href="/Vocab-builder/sprite.svg#icon-arrow-down"></use>
               </svg>
-              <div className={css.radioBox}>
-                <div
-                  className={css.radioBoxItem}
-                  onClick={() => handleRadioChange("regular")}
-                >
-                  <span>
-                    <svg className={css.radioBpxPoint}>
-                      <use
-                        href={`${sprite}${
-                          checked === "regular"
-                            ? "#icon-checked-radio"
-                            : "#icon-empty-radio"
-                        }`}
-                      ></use>
-                    </svg>
-                  </span>
-                  <input
-                    className={css.inputRadio}
-                    type="radio"
-                    id="regular"
-                    name="verb"
-                    value="regular"
-                    checked={checked === "regular"}
-                    onChange={() => handleRadioChange("regular")}
-                  />
-                  <label htmlFor="regular">Regular</label>
+              {selectedCategory === "verb" && (
+                <div className={css.radioBox}>
+                  <div
+                    className={css.radioBoxItem}
+                    onClick={() => handleRadioChange("regular")}
+                  >
+                    <span>
+                      <svg className={css.radioBpxPoint}>
+                        <use
+                          href={`${sprite}${
+                            checked === "regular"
+                              ? "#icon-checked-radio"
+                              : "#icon-empty-radio"
+                          }`}
+                        ></use>
+                      </svg>
+                    </span>
+                    <input
+                      className={css.inputRadio}
+                      type="radio"
+                      id="regular"
+                      name="verb"
+                      value="regular"
+                      checked={checked === "regular"}
+                      onChange={() => handleRadioChange("regular")}
+                    />
+                    <label className={css.label} htmlFor="regular">
+                      Regular
+                    </label>
+                  </div>
+                  <div
+                    className={css.radioBoxItem}
+                    onClick={() => handleRadioChange("irregular")}
+                  >
+                    <span>
+                      <svg className={css.radioBpxPoint}>
+                        <use
+                          href={`${sprite}${
+                            checked === "irregular"
+                              ? "#icon-checked-radio"
+                              : "#icon-empty-radio"
+                          }`}
+                        ></use>
+                      </svg>
+                    </span>
+                    <input
+                      className={css.inputRadio}
+                      type="radio"
+                      id="irregular"
+                      name="verb"
+                      value="irregular"
+                      checked={checked === "irregular"}
+                      onChange={() => handleRadioChange("irregular")}
+                    />
+                    <label className={css.label} htmlFor="irregular">
+                      Irregular
+                    </label>
+                  </div>
                 </div>
-                <div
-                  className={css.radioBoxItem}
-                  onClick={() => handleRadioChange("irregular")}
-                >
-                  <span>
-                    <svg className={css.radioBpxPoint}>
-                      <use
-                        href={`${sprite}${
-                          checked === "irregular"
-                            ? "#icon-checked-radio"
-                            : "#icon-empty-radio"
-                        }`}
-                      ></use>
-                    </svg>
-                  </span>
-                  <input
-                    className={css.inputRadio}
-                    type="radio"
-                    id="irregular"
-                    name="verb"
-                    value="irregular"
-                    checked={checked === "irregular"}
-                    onChange={() => handleRadioChange("irregular")}
-                  />
-                  <label htmlFor="irregular">Irregular</label>
-                </div>
-              </div>
+              )}
             </div>
             <div className={css.titleText}>
               <img src={uaImg} alt="ukrainian flag" />

@@ -113,7 +113,7 @@
   background-color: transparent;
   color: var(--white);
   appearance: none;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   outline: none;
   padding: 12px 24px;
 }
@@ -144,6 +144,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 32px;
+  height: 18px;
 }
 
 .radioBoxItem {
@@ -162,6 +163,10 @@
 .inputRadio {
   color: var(--white);
   appearance: none;
+}
+
+.label {
+  color: var(--white);
 }
 
 .buttonBox {
