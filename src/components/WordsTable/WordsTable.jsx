@@ -20,14 +20,15 @@ import sprite from "/public/sprite.svg";
 import uaImg from "../../image/ukraine.png";
 import ukImg from "../../image/united-kingdom.png";
 
-export const WordsTable = () => {
+export const WordsTable = ({ arrowOn }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [itemId, setItemId] = useState(null);
 
   const [placement, setPlacement] = useState("bottom-end");
 
-  const [data] = useState([
+  const [data, setData] = useState([
     { id: 1, name: "apple", translation: "яблуко", progress: 50 },
     { id: 2, name: "car", translation: "авто", progress: 70 },
     { id: 3, name: "house", translation: "будинок", progress: 30 },
@@ -51,6 +52,7 @@ export const WordsTable = () => {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => !prev);
     setPlacement("bottom-end");
+    setItemId(event.currentTarget.dataset.id);
   };
 
   const handleClosePopup = (event) => {
@@ -63,6 +65,10 @@ export const WordsTable = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    setData((prevData) => prevData.filter((item) => item.id !== id));
+  };
+
   useEffect(() => {
     if (open) {
       document.addEventListener("mousedown", handleClosePopup);
@@ -72,7 +78,7 @@ export const WordsTable = () => {
     }
   }, [open]);
 
-  console.log(anchorEl);
+  console.log(itemId);
 
   return (
     <div>
@@ -97,9 +103,21 @@ export const WordsTable = () => {
                   <ProgressBar value={item.progress} />
                 </TableCell>
                 <TableCell className={css.bodyTableRow}>
-                  <button className={css.button} onClick={handleClick}>
-                    <p className={css.text}>...</p>
-                  </button>
+                  {arrowOn === "arrow" ? (
+                    <button className={css.button}>
+                      <svg className={css.iconArrow}>
+                        <use href={`${sprite}#icon-arrow-right`}></use>
+                      </svg>
+                    </button>
+                  ) : (
+                    <button
+                      className={css.button}
+                      onClick={handleClick}
+                      data-id={item.id}
+                    >
+                      <p className={css.text}>...</p>
+                    </button>
+                  )}
                 </TableCell>
               </TableRow>
             ))}
@@ -110,7 +128,7 @@ export const WordsTable = () => {
       <Popper
         sx={{ zIndex: 20 }}
         open={open}
-        anchorEl={popperRef.current}
+        anchorEl={anchorEl}
         placement={placement}
         transition
         ref={popperRef}
@@ -136,7 +154,10 @@ export const WordsTable = () => {
                   </svg>
                   Edit
                 </button>
-                <button className={css.buttonModal}>
+                <button
+                  className={css.buttonModal}
+                  onClick={() => handleDelete(itemId)}
+                >
                   <svg className={css.iconModal}>
                     <use href={`${sprite}#icon-trash`}></use>
                   </svg>

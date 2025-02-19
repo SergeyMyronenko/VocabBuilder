@@ -6,11 +6,12 @@ import { Box, Modal } from "@mui/material";
 import sprite from "/public/sprite.svg";
 import uaImg from "../../image/ukraine.png";
 import ukImg from "../../image/united-kingdom.png";
+import clsx from "clsx";
 
-export const Dashboard = () => {
+export const Dashboard = ({ hide }) => {
   const [add, setAdd] = useState(false);
   const [checked, setChecked] = useState("regular");
-  const [selectedCategory, setSelectedCategory] = useState("verb");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const { register, handleSubmit } = useForm();
 
@@ -20,6 +21,7 @@ export const Dashboard = () => {
 
   const handleOpen = () => {
     setAdd(true);
+    setSelectedCategory("verb");
   };
 
   const handleClose = () => {
@@ -38,6 +40,7 @@ export const Dashboard = () => {
             className={css.input}
             defaultValue=""
             {...register("Filter", { min: 2 })}
+            placeholder="Find the word"
           />
           <svg className={css.icon}>
             <use href="/Vocab-builder/sprite.svg#icon-search"></use>
@@ -49,6 +52,8 @@ export const Dashboard = () => {
             name="CategoriesModal"
             id="CategoriesModal"
             {...register("categoryModal")}
+            defaultValue="categories"
+            onChange={handleSelectCategory}
           >
             <option value="">Categories</option>
             <option value="verb">Verb</option>
@@ -66,18 +71,104 @@ export const Dashboard = () => {
           <svg className={css.iconArrow}>
             <use href="/Vocab-builder/sprite.svg#icon-arrow-down"></use>
           </svg>
+          {selectedCategory === "verb" && (
+            <div className={css.radioWrapper}>
+              <div
+                className={clsx(
+                  css.radioBox,
+                  checked !== "regular" && css.radioBoxActive
+                )}
+              >
+                <div
+                  className={css.radioBoxItem}
+                  onClick={() => handleRadioChange("regular")}
+                >
+                  <span>
+                    <svg
+                      className={clsx(
+                        css.radioBpxPoint,
+                        checked === "regular" && css.radioBpxPointActive
+                      )}
+                    >
+                      <use
+                        href={`${sprite}${
+                          checked === "regular"
+                            ? "#icon-checked-radio-black"
+                            : "#icon-empty-radio"
+                        }`}
+                      ></use>
+                    </svg>
+                  </span>
+                  <input
+                    className={css.inputRadio}
+                    type="radio"
+                    id="regular"
+                    name="verb"
+                    value="regular"
+                    checked={checked === "regular"}
+                    onChange={() => handleRadioChange("regular")}
+                  />
+                  <label className={css.label} htmlFor="regular">
+                    Regular
+                  </label>
+                </div>
+                <div
+                  className={css.radioBoxItem}
+                  onClick={() => handleRadioChange("irregular")}
+                >
+                  <span>
+                    <svg
+                      className={clsx(
+                        css.radioBpxPoint,
+                        checked === "irregular" && css.radioBpxPointActive
+                      )}
+                    >
+                      <use
+                        href={`${sprite}${
+                          checked === "irregular"
+                            ? "#icon-checked-radio-black"
+                            : "#icon-empty-radio"
+                        }`}
+                      ></use>
+                    </svg>
+                  </span>
+                  <input
+                    className={css.inputRadio}
+                    type="radio"
+                    id="irregular"
+                    name="verb"
+                    value="irregular"
+                    checked={checked === "irregular"}
+                    onChange={() => handleRadioChange("irregular")}
+                  />
+                  <label className={css.label} htmlFor="irregular">
+                    Irregular
+                  </label>
+                </div>
+              </div>
+              {checked === "irregular" && (
+                <p className={css.irregularText}>
+                  Such data must be entered in the format I-form II-form
+                  III-form.
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </form>
-      <p className={css.text}>
+      <p className={clsx(css.text, selectedCategory === "verb" && css.textOff)}>
         To study: <span className={css.textValue}>20</span>
       </p>
       <div className={css.wordBox}>
-        <div className={css.wordBoxText}>
-          <p>Add word</p>
-          <svg className={css.iconWordBox} onClick={handleOpen}>
-            <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
-          </svg>
-        </div>
+        {hide !== "hide" && (
+          <div className={css.wordBoxText}>
+            <p>Add word</p>
+            <svg className={css.iconWordBox} onClick={handleOpen}>
+              <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
+            </svg>
+          </div>
+        )}
+
         <div className={css.wordBoxText}>
           <p>Train oneself</p>
           <Link to="/training">
@@ -144,63 +235,93 @@ export const Dashboard = () => {
                 <use href="/Vocab-builder/sprite.svg#icon-arrow-down"></use>
               </svg>
               {selectedCategory === "verb" && (
-                <div className={css.radioBox}>
+                <div className={css.radioWrapper}>
                   <div
-                    className={css.radioBoxItem}
-                    onClick={() => handleRadioChange("regular")}
+                    className={clsx(
+                      css.radioBox,
+                      checked !== "regular" && css.radioBoxActive
+                    )}
                   >
-                    <span>
-                      <svg className={css.radioBpxPoint}>
-                        <use
-                          href={`${sprite}${
-                            checked === "regular"
-                              ? "#icon-checked-radio"
-                              : "#icon-empty-radio"
-                          }`}
-                        ></use>
-                      </svg>
-                    </span>
-                    <input
-                      className={css.inputRadio}
-                      type="radio"
-                      id="regular"
-                      name="verb"
-                      value="regular"
-                      checked={checked === "regular"}
-                      onChange={() => handleRadioChange("regular")}
-                    />
-                    <label className={css.label} htmlFor="regular">
-                      Regular
-                    </label>
+                    <div
+                      className={css.radioBoxItem}
+                      onClick={() => handleRadioChange("regular")}
+                    >
+                      <span>
+                        <svg className={css.radioBpxPointModal}>
+                          <use
+                            href={`${sprite}${
+                              checked === "regular"
+                                ? "#icon-checked-radio"
+                                : "#icon-empty-radio"
+                            }`}
+                          ></use>
+                        </svg>
+                      </span>
+                      <input
+                        className={css.inputRadio}
+                        type="radio"
+                        id="regular"
+                        name="verb"
+                        value="regular"
+                        checked={checked === "regular"}
+                        onChange={() => handleRadioChange("regular")}
+                      />
+                      <label
+                        className={clsx(
+                          css.label,
+                          add === true && css.labelModal
+                        )}
+                        htmlFor="regular"
+                      >
+                        Regular
+                      </label>
+                    </div>
+                    <div
+                      className={css.radioBoxItem}
+                      onClick={() => handleRadioChange("irregular")}
+                    >
+                      <span>
+                        <svg className={css.radioBpxPointModal}>
+                          <use
+                            href={`${sprite}${
+                              checked === "irregular"
+                                ? "#icon-checked-radio"
+                                : "#icon-empty-radio"
+                            }`}
+                          ></use>
+                        </svg>
+                      </span>
+                      <input
+                        className={css.inputRadio}
+                        type="radio"
+                        id="irregular"
+                        name="verb"
+                        value="irregular"
+                        checked={checked === "irregular"}
+                        onChange={() => handleRadioChange("irregular")}
+                      />
+                      <label
+                        className={clsx(
+                          css.label,
+                          add === true && css.labelModal
+                        )}
+                        htmlFor="irregular"
+                      >
+                        Irregular
+                      </label>
+                    </div>
                   </div>
-                  <div
-                    className={css.radioBoxItem}
-                    onClick={() => handleRadioChange("irregular")}
-                  >
-                    <span>
-                      <svg className={css.radioBpxPoint}>
-                        <use
-                          href={`${sprite}${
-                            checked === "irregular"
-                              ? "#icon-checked-radio"
-                              : "#icon-empty-radio"
-                          }`}
-                        ></use>
-                      </svg>
-                    </span>
-                    <input
-                      className={css.inputRadio}
-                      type="radio"
-                      id="irregular"
-                      name="verb"
-                      value="irregular"
-                      checked={checked === "irregular"}
-                      onChange={() => handleRadioChange("irregular")}
-                    />
-                    <label className={css.label} htmlFor="irregular">
-                      Irregular
-                    </label>
-                  </div>
+                  {checked === "irregular" && (
+                    <p
+                      className={clsx(
+                        css.irregularText,
+                        add === true && css.irregularTextModal
+                      )}
+                    >
+                      Such data must be entered in the format I-form II-form
+                      III-form.
+                    </p>
+                  )}
                 </div>
               )}
             </div>

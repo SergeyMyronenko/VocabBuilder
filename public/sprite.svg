@@ -74,5 +74,9 @@
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M16 1.778c7.855 0 14.222 6.367 14.222 14.222s-6.367 14.222-14.222 14.222c-7.855 0-14.222-6.367-14.222-14.222s6.367-14.222 14.222-14.222z"></path>
 <path d="M16 7.111c4.909 0 8.889 3.98 8.889 8.889s-3.98 8.889-8.889 8.889c-4.909 0-8.889-3.98-8.889-8.889s3.98-8.889 8.889-8.889z" fill="white"></path>
 </symbol>
+<symbol id="icon-checked-radio-black" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M16 1.778c7.855 0 14.222 6.367 14.222 14.222s-6.367 14.222-14.222 14.222c-7.855 0-14.222-6.367-14.222-14.222s6.367-14.222 14.222-14.222z"></path>
+<path d="M16 7.111c4.909 0 8.889 3.98 8.889 8.889s-3.98 8.889-8.889 8.889c-4.909 0-8.889-3.98-8.889-8.889s3.98-8.889 8.889-8.889z" fill="var(--accent-color)"></path>
+</symbol>
 </defs>
 </svg>

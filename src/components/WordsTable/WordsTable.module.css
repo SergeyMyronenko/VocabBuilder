@@ -70,6 +70,12 @@
   cursor: pointer;
 }
 
+.iconArrow {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent-color);
+}
+
 .text {
   background-color: var(--white);
 }
