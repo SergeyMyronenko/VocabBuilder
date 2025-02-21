@@ -45,6 +45,7 @@
   height: 48px;
   background-color: transparent;
   appearance: none;
+  color: var(--text-color);
 }
 
 .text {
@@ -52,6 +53,10 @@
   font-weight: 500;
   font-size: 14px;
   color: rgba(18, 20, 23, 0.5);
+}
+
+.textOff {
+  margin-top: 0;
 }
 
 .textValue {
@@ -113,13 +118,18 @@
   background-color: transparent;
   color: var(--white);
   appearance: none;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   outline: none;
   padding: 12px 24px;
 }
 
 .inputModal option {
   color: black;
+  text-transform: capitalize;
+}
+
+.inputModal:first-letter {
+  text-transform: uppercase;
 }
 
 .iconArrowModal {
@@ -143,7 +153,13 @@
 .radioBox {
   display: flex;
   gap: 16px;
-  margin-bottom: 32px;
+  height: 18px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.radioBoxActive {
+  margin-bottom: 0;
 }
 
 .radioBoxItem {
@@ -155,13 +171,47 @@
   border-radius: 12px;
   width: 18px;
   height: 18px;
+  stroke: var(--text-color);
+  opacity: 0.2;
+  fill: none;
+}
+
+.radioBpxPointActive {
+  opacity: 1;
+  stroke: var(--accent-color);
+}
+
+.radioBpxPointModal {
   stroke: var(--white);
+  border-radius: 12px;
+  width: 18px;
+  height: 18px;
   fill: none;
 }
 
 .inputRadio {
-  color: var(--white);
   appearance: none;
+}
+
+.label {
+  color: var(--text-color);
+}
+
+.labelModal {
+  color: var(--white);
+}
+
+.irregularText {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2em;
+}
+
+.irregularTextModal {
+  color: var(--white);
 }
 
 .buttonBox {
