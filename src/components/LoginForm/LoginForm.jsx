@@ -28,7 +28,7 @@ export const LoginForm = () => {
         </button>
       </form>
 
-      <a className={css.link} href="Vocab-builder/login">
+      <a className={css.link} href="Vocab-builder/register">
         Register
       </a>
     </div>

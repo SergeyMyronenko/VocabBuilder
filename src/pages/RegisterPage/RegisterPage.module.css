@@ -28,3 +28,6 @@
   background-color: rgba(133, 170, 159, 0.1);
   border-radius: 25px 25px 0 0;
 }
+
+@media screen and (min-width: 768px) {
+}

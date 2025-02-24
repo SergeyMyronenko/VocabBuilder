@@ -83,3 +83,9 @@
   stroke: var(--white);
   fill: none;
 }
+
+@media screen and (min-width: 768px) {
+  .headerWrapper {
+    padding: 24px;
+  }
+}

@@ -1,6 +1,10 @@
 .mainWrapper {
   background-color: var(--white-1);
-  padding: 16px;
+  padding: 76px 16px 76px 16px;
+}
+
+.paddingTop {
+  padding-top: 24px;
 }
 
 .uaBlock {
@@ -70,6 +74,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 132px;
+}
+
+.formBlock {
+  margin-bottom: 116px;
 }
 
 .progress {
@@ -96,7 +105,6 @@
 }
 
 .buttonBottom {
-  margin-top: 132px;
   background-color: transparent;
   width: 100%;
 }
@@ -113,12 +121,67 @@
   margin-bottom: 8px;
 }
 
-.buttonSecond {
+.linkCancel {
   background-color: transparent;
   color: rgba(18, 20, 23, 0.5);
-  width: 343px;
-  padding: 16px;
+  text-align: center;
+  display: block;
+}
+
+.modalClose {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  stroke: var(--white);
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+}
+
+.wordsWrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.titleModal {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.17em;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--white);
+}
+
+.answer {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(252, 252, 252, 0.5);
+  margin-bottom: 8px;
+}
+
+.wordItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: var(--white);
+}
+
+.wordItem::first-letter {
+  text-transform: capitalize;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--white);
+}
+
+.iconBook {
+  margin-top: 51px;
+}
+
+.disable {
+  display: none;
 }

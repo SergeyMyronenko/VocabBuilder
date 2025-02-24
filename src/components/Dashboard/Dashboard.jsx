@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import css from "./Dashboard.module.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Box, Modal } from "@mui/material";
 import sprite from "/public/sprite.svg";
 import uaImg from "../../image/ukraine.png";
@@ -14,6 +14,7 @@ export const Dashboard = ({ hide }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const { register, handleSubmit } = useForm();
+  const location = useLocation();
 
   const handleRadioChange = (value) => {
     setChecked(value);
@@ -31,6 +32,12 @@ export const Dashboard = ({ hide }) => {
   const handleSelectCategory = (e) => {
     setSelectedCategory(e.target.value);
   };
+
+  useEffect(() => {
+    if (location.state?.openAddWordModal) {
+      setAdd(true);
+    }
+  }, [location.state]);
 
   return (
     <div className={css.dashboard}>
