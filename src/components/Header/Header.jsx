@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);

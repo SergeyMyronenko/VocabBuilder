@@ -14,6 +14,7 @@ export const RegisterPage = () => {
         </p>
         <RegisterForm />
       </div>
+      <p className={css.textTablet}>Word · Translation · Grammar · Progress</p>
     </div>
   );
 };

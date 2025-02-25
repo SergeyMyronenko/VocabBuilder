@@ -44,7 +44,7 @@ export const Dashboard = ({ hide }) => {
       <form className={css.form}>
         <div className={css.inputWrapper}>
           <input
-            className={css.input}
+            className={`${css.input} ${css.inputSearch}`}
             defaultValue=""
             {...register("Filter", { min: 2 })}
             placeholder="Find the word"
@@ -55,7 +55,7 @@ export const Dashboard = ({ hide }) => {
         </div>
         <div className={css.inputWrapper}>
           <select
-            className={css.input}
+            className={`${css.input} ${css.inputSelect}`}
             name="CategoriesModal"
             id="CategoriesModal"
             {...register("categoryModal")}
@@ -163,26 +163,30 @@ export const Dashboard = ({ hide }) => {
           )}
         </div>
       </form>
-      <p className={clsx(css.text, selectedCategory === "verb" && css.textOff)}>
-        To study: <span className={css.textValue}>20</span>
-      </p>
-      <div className={css.wordBox}>
-        {hide !== "hide" && (
-          <div className={css.wordBoxText}>
-            <p>Add word</p>
-            <svg className={css.iconWordBox} onClick={handleOpen}>
-              <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
-            </svg>
-          </div>
-        )}
+      <div className={css.studyTablet}>
+        <p
+          className={clsx(css.text, selectedCategory === "verb" && css.textOff)}
+        >
+          To study: <span className={css.textValue}>20</span>
+        </p>
+        <div className={css.wordBox}>
+          {hide !== "hide" && (
+            <div className={css.wordBoxText}>
+              <p>Add word</p>
+              <svg className={css.iconWordBox} onClick={handleOpen}>
+                <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
+              </svg>
+            </div>
+          )}
 
-        <div className={css.wordBoxText}>
-          <p>Train oneself</p>
-          <Link to="/training">
-            <svg className={css.iconWordBox}>
-              <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
-            </svg>
-          </Link>
+          <div className={css.wordBoxText}>
+            <p>Train oneself</p>
+            <Link to="/training">
+              <svg className={css.iconWordBox}>
+                <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
 
