@@ -55,6 +55,12 @@
   color: rgba(18, 20, 23, 0.5);
 }
 
+.titleMobail {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
 .textOff {
   margin-top: 0;
 }
@@ -236,4 +242,31 @@
   padding: 12px 45px;
   background-color: transparent;
   color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    margin-top: 80px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .inputSearch {
+    width: 274px;
+  }
+
+  .inputSelect {
+    width: 164px;
+  }
+
+  .studyTablet {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .text {
+    margin-top: 0;
+    font-size: 16px;
+  }
 }

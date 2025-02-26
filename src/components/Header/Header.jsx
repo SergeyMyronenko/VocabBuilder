@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [login, setLogin] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);
@@ -20,10 +21,12 @@ export const Header = () => {
     <div className={css.headerBlock}>
       <div className={css.headerWrapper}>
         <MainLogo />
-        <div className={css.navBlock}>
-          <UserBar />
-          <UserNav isOpen={openModal} />
-        </div>
+        {login && (
+          <div className={css.navBlock}>
+            <UserBar />
+            <UserNav isOpen={openModal} />
+          </div>
+        )}
       </div>
 
       {/* ----Modal-menu---- */}

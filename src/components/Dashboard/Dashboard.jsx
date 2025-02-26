@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import css from "./Dashboard.module.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Box, Modal } from "@mui/material";
 import sprite from "/public/sprite.svg";
 import uaImg from "../../image/ukraine.png";
@@ -14,6 +14,7 @@ export const Dashboard = ({ hide }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const { register, handleSubmit } = useForm();
+  const location = useLocation();
 
   const handleRadioChange = (value) => {
     setChecked(value);
@@ -32,12 +33,18 @@ export const Dashboard = ({ hide }) => {
     setSelectedCategory(e.target.value);
   };
 
+  useEffect(() => {
+    if (location.state?.openAddWordModal) {
+      setAdd(true);
+    }
+  }, [location.state]);
+
   return (
     <div className={css.dashboard}>
       <form className={css.form}>
         <div className={css.inputWrapper}>
           <input
-            className={css.input}
+            className={`${css.input} ${css.inputSearch}`}
             defaultValue=""
             {...register("Filter", { min: 2 })}
             placeholder="Find the word"
@@ -48,7 +55,7 @@ export const Dashboard = ({ hide }) => {
         </div>
         <div className={css.inputWrapper}>
           <select
-            className={css.input}
+            className={`${css.input} ${css.inputSelect}`}
             name="CategoriesModal"
             id="CategoriesModal"
             {...register("categoryModal")}
@@ -156,26 +163,30 @@ export const Dashboard = ({ hide }) => {
           )}
         </div>
       </form>
-      <p className={clsx(css.text, selectedCategory === "verb" && css.textOff)}>
-        To study: <span className={css.textValue}>20</span>
-      </p>
-      <div className={css.wordBox}>
-        {hide !== "hide" && (
-          <div className={css.wordBoxText}>
-            <p>Add word</p>
-            <svg className={css.iconWordBox} onClick={handleOpen}>
-              <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
-            </svg>
-          </div>
-        )}
+      <div className={css.studyTablet}>
+        <p
+          className={clsx(css.text, selectedCategory === "verb" && css.textOff)}
+        >
+          To study: <span className={css.textValue}>20</span>
+        </p>
+        <div className={css.wordBox}>
+          {hide !== "hide" && (
+            <div className={css.wordBoxText}>
+              <p className={css.titleMobail}>Add word</p>
+              <svg className={css.iconWordBox} onClick={handleOpen}>
+                <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
+              </svg>
+            </div>
+          )}
 
-        <div className={css.wordBoxText}>
-          <p>Train oneself</p>
-          <Link to="/training">
-            <svg className={css.iconWordBox}>
-              <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
-            </svg>
-          </Link>
+          <div className={css.wordBoxText}>
+            <p className={css.titleMobail}>Train oneself</p>
+            <Link to="/training">
+              <svg className={css.iconWordBox}>
+                <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
 

@@ -16,6 +16,7 @@
   padding: 16px 18px;
   width: 343px;
   height: 56px;
+  background-color: transparent;
 }
 
 .button {
@@ -40,4 +41,18 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: var(--link);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    gap: 18px;
+  }
+
+  .input {
+    width: 500px;
+  }
+
+  .button {
+    width: 500px;
+  }
 }

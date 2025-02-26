@@ -6,15 +6,38 @@ import sprite from "/Vocab-builder/sprite.svg";
 import css from "./TrainingRoom.module.css";
 import { useState } from "react";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
+import clsx from "clsx";
+import { Link, useNavigate } from "react-router-dom";
+import { Box, Modal } from "@mui/material";
+import book from "../../image/open-book.png";
+import { p } from "@table-library/react-table-library/styles-492c6342";
 
 export const TrainingRoom = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([
-    // { id: 1, name: "apple", translation: "яблуко", progress: 50 },
+    { id: 1, name: "apple", translation: "яблуко", progress: 50 },
   ]);
+  const [incorrectWords, setIncorrectWods] = useState([]);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  const openModal = () => {
+    if (data.length === 0) {
+      navigate("/Vocab-builder/dictionary", {
+        state: { openAddWordModal: true },
+      });
+    } else {
+      setIsOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    navigate("/Vocab-builder/dictionary");
+  };
 
   return (
-    <div className={css.mainWrapper}>
+    <div className={clsx(css.mainWrapper, data.length !== 0 && css.paddingTop)}>
       {data.length === 0 ? (
         <div className={css.infoBlock}>
           <img
@@ -32,7 +55,7 @@ export const TrainingRoom = () => {
           </p>
         </div>
       ) : (
-        <div>
+        <div className={css.formBlock}>
           <div className={css.progress}>
             <ProgressBar />
           </div>
@@ -78,13 +101,70 @@ export const TrainingRoom = () => {
         </div>
       )}
       <div className={css.buttonBottom}>
-        <button className={css.buttonThirst} type="button">
-          {data.length === 0 ? "Add" : "Save"}
+        <button className={css.buttonThirst} type="button" onClick={openModal}>
+          {data.length === 0 ? "Add word" : "Save"}
         </button>
-        <button className={css.buttonSecond} type="button">
+        <Link className={css.linkCancel} to="/Vocab-builder/dictionary">
           Cancel
-        </button>
+        </Link>
       </div>
+
+      {/* -----  Modal -----  */}
+      <Modal
+        open={isOpen}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            borderRadius: "16px",
+            backgroundColor: "var(--accent-color)",
+            width: "343px",
+            padding: "48px 16px",
+            position: "relative",
+            outline: "none",
+          }}
+        >
+          <svg className={css.modalClose} onClick={closeModal}>
+            <use href={`${sprite}#icon-close`}></use>
+          </svg>
+
+          <h2 className={css.titleModal}>Well done</h2>
+          <div className={css.wordsWrapper}>
+            <div>
+              <p className={css.answer}>Сorrect answers: </p>
+              <ul>
+                {data.map((word, i) => (
+                  <li key={i} className={css.wordItem}>
+                    {word.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className={css.answer}>Mistakes:</p>
+              <ul>
+                {incorrectWords.length > 0 ? (
+                  incorrectWords.map((word, i) => <li key={i}>{word}</li>)
+                ) : (
+                  <p className={css.text}>No mistakes</p>
+                )}
+              </ul>
+              <img
+                className={clsx(
+                  css.iconBook,
+                  incorrectWords.length > 4 && css.disable
+                )}
+                src={book}
+                alt="open book icon"
+              />
+            </div>
+          </div>
+        </Box>
+      </Modal>
     </div>
   );
 };
