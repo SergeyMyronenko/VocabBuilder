@@ -55,6 +55,12 @@
   color: rgba(18, 20, 23, 0.5);
 }
 
+.titleMobail {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
 .textOff {
   margin-top: 0;
 }
@@ -255,5 +261,12 @@
 
   .studyTablet {
     display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .text {
+    margin-top: 0;
+    font-size: 16px;
   }
 }

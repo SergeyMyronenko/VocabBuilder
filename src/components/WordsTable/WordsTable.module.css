@@ -1,3 +1,7 @@
+.tableComponent {
+  background-color: var(--white-1);
+}
+
 .container {
   padding: 0 16px;
 }
@@ -5,8 +9,11 @@
 .table {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
-  width: 100%;
   table-layout: fixed;
+}
+
+.table .tableRowTablet {
+  display: none;
 }
 
 .table .tableRow {
@@ -16,12 +23,16 @@
   font-size: 16px;
 }
 
-.table .bodyTableRow {
+.rowList .bodyTableRow {
   width: 82px;
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
   font-weight: 500;
   font-size: 14px;
+}
+
+.table .bodyTableRowTablet {
+  display: none;
 }
 
 .tableRow:nth-child(1) {
@@ -30,10 +41,10 @@
 .tableRow:nth-child(2) {
   width: 116px;
 }
-.tableRow:nth-child(3) {
+.tableRow:nth-child(4) {
   width: 95px;
 }
-.tableRow:nth-child(4) {
+.tableRow:nth-child(5) {
   width: 50px;
 }
 
@@ -47,9 +58,14 @@
 
 .bodyTableRow:nth-child(3) {
   text-align: center;
+  display: none;
 }
 
 .bodyTableRow:nth-child(4) {
+  text-align: center;
+}
+
+.bodyTableRow:nth-child(5) {
   text-align: center;
 }
 
@@ -161,4 +177,68 @@
   padding: 12px 45px;
   background-color: transparent;
   color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .tableComponent .container {
+    background-color: #fff;
+    width: 704px;
+    margin: 0 auto;
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .container .table {
+    width: auto;
+    background-color: var(--white);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .table .tableRowTablet {
+    display: table-cell;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    font-weight: 500;
+    font-size: 18px;
+    width: 151px;
+    padding: 22px;
+    text-align: left;
+  }
+
+  .table .tableRow {
+    font-size: 18px;
+    padding: 22px;
+  }
+
+  .tableRow:nth-child(1) {
+    width: 160px;
+  }
+  .tableRow:nth-child(2) {
+    width: 169px;
+  }
+  .tableRow:nth-child(4) {
+    width: 122px;
+  }
+  .tableRow:nth-child(5) {
+    width: 66px;
+  }
+
+  .table .bodyTableRow {
+    font-size: 18px;
+  }
+
+  .rowList .bodyTableRow:nth-child(3) {
+    display: table-cell;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .title {
+    display: flex;
+  }
 }

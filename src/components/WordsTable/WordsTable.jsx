@@ -29,16 +29,70 @@ export const WordsTable = ({ arrowOn }) => {
   const [placement, setPlacement] = useState("bottom-end");
 
   const [data, setData] = useState([
-    { id: 1, name: "apple", translation: "яблуко", progress: 50 },
-    { id: 2, name: "car", translation: "авто", progress: 70 },
-    { id: 3, name: "house", translation: "будинок", progress: 30 },
-    { id: 4, name: "sun", translation: "сонце", progress: 90 },
-    { id: 5, name: "computer", translation: "комп'ютер", progress: 60 },
-    { id: 6, name: "book", translation: "книга", progress: 80 },
-    { id: 7, name: "tree", translation: "дерево", progress: 40 },
-    { id: 8, name: "phone", translation: "телефон", progress: 65 },
-    { id: 9, name: "table", translation: "стіл", progress: 75 },
-    { id: 10, name: "window", translation: "вікно", progress: 55 },
+    {
+      id: 1,
+      name: "apple",
+      translation: "яблуко",
+      progress: 50,
+      category: "Noun",
+    },
+    { id: 2, name: "car", translation: "авто", progress: 70, category: "Noun" },
+    {
+      id: 3,
+      name: "house",
+      translation: "будинок",
+      progress: 30,
+      category: "Noun",
+    },
+    {
+      id: 4,
+      name: "sun",
+      translation: "сонце",
+      progress: 90,
+      category: "Noun",
+    },
+    {
+      id: 5,
+      name: "computer",
+      translation: "комп'ютер",
+      progress: 60,
+      category: "Noun",
+    },
+    {
+      id: 6,
+      name: "book",
+      translation: "книга",
+      progress: 80,
+      category: "Noun",
+    },
+    {
+      id: 7,
+      name: "tree",
+      translation: "дерево",
+      progress: 40,
+      category: "Noun",
+    },
+    {
+      id: 8,
+      name: "phone",
+      translation: "телефон",
+      progress: 65,
+      category: "Noun",
+    },
+    {
+      id: 9,
+      name: "table",
+      translation: "стіл",
+      progress: 75,
+      category: "Noun",
+    },
+    {
+      id: 10,
+      name: "window",
+      translation: "вікно",
+      progress: 55,
+      category: "Noun",
+    },
   ]);
 
   const { register, handleSubmit } = useForm();
@@ -78,16 +132,21 @@ export const WordsTable = ({ arrowOn }) => {
     }
   }, [open]);
 
-  console.log(itemId);
-
   return (
-    <div>
+    <div className={css.tableComponent}>
       <TableContainer className={css.container}>
         <Table className={css.table}>
           <TableHead className={css.title}>
             <TableRow>
-              <TableCell className={css.tableRow}>Word</TableCell>
-              <TableCell className={css.tableRow}>Translation</TableCell>
+              <TableCell className={css.tableRow}>
+                <span>Word</span>
+                {/* <img src={uaImg} alt="icon ukrainian flag" /> */}
+              </TableCell>
+              <TableCell className={css.tableRow}>
+                <span>Translation</span>
+                {/* <img src={ukImg} alt="icon uk flag" /> */}
+              </TableCell>
+              <TableCell className={css.tableRowTablet}>Category</TableCell>
               <TableCell className={css.tableRow}>Progress</TableCell>
               <TableCell className={css.tableRow}></TableCell>
             </TableRow>
@@ -98,6 +157,9 @@ export const WordsTable = ({ arrowOn }) => {
                 <TableCell className={css.bodyTableRow}>{item.name}</TableCell>
                 <TableCell className={css.bodyTableRow}>
                   {item.translation}
+                </TableCell>
+                <TableCell className={css.bodyTableRow}>
+                  {item.category}
                 </TableCell>
                 <TableCell className={css.bodyTableRow}>
                   <ProgressBar value={item.progress} />

@@ -172,7 +172,7 @@ export const Dashboard = ({ hide }) => {
         <div className={css.wordBox}>
           {hide !== "hide" && (
             <div className={css.wordBoxText}>
-              <p>Add word</p>
+              <p className={css.titleMobail}>Add word</p>
               <svg className={css.iconWordBox} onClick={handleOpen}>
                 <use href="/Vocab-builder/sprite.svg#icon-plus"></use>
               </svg>
@@ -180,7 +180,7 @@ export const Dashboard = ({ hide }) => {
           )}
 
           <div className={css.wordBoxText}>
-            <p>Train oneself</p>
+            <p className={css.titleMobail}>Train oneself</p>
             <Link to="/training">
               <svg className={css.iconWordBox}>
                 <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
