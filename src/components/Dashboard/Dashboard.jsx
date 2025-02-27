@@ -202,16 +202,7 @@ export const Dashboard = ({ hide }) => {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            borderRadius: "16px",
-            backgroundColor: "var(--accent-color)",
-            width: "343px",
-            padding: "48px 16px",
-            position: "relative",
-            outline: "none",
-          }}
-        >
+        <Box className={css.addModal}>
           <form onSubmit={handleSubmit}>
             <svg className={css.modalClose} onClick={handleClose}>
               <use href={`${sprite}#icon-close`}></use>

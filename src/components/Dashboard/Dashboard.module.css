@@ -21,7 +21,6 @@
   position: absolute;
   top: 14px;
   right: 24px;
-  fill: none;
   width: 20px;
   height: 20px;
   fill: var(--text-color);
@@ -244,11 +243,34 @@
   color: var(--white);
 }
 
+.addModal {
+  border-radius: 16px;
+  background-color: var(--accent-color);
+  width: 343px;
+  padding: 48px 16px;
+  position: relative;
+  outline: none;
+}
+
 @media screen and (min-width: 768px) {
+  .dashboard {
+    padding: 32px;
+  }
+
+  .addModal {
+    width: 768px;
+  }
+
+  .inputModal {
+    width: 204px;
+  }
+
   .form {
     margin-top: 80px;
     display: flex;
     gap: 8px;
+    max-width: 768px;
+    margin-bottom: 28px;
   }
 
   .inputSearch {
@@ -268,5 +290,22 @@
   .text {
     margin-top: 0;
     font-size: 16px;
+  }
+
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .radioBox {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .iconArrow {
+    left: 120px;
   }
 }
