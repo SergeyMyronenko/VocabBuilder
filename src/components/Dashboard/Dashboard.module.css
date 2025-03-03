@@ -215,6 +215,10 @@
   line-height: 1.2em;
 }
 
+.irregularTextTablet {
+  display: none;
+}
+
 .irregularTextModal {
   color: var(--white);
 }
@@ -258,7 +262,8 @@
   }
 
   .addModal {
-    width: 768px;
+    width: 628px;
+    padding: 48px 64px;
   }
 
   .inputModal {
@@ -271,6 +276,10 @@
     gap: 8px;
     max-width: 768px;
     margin-bottom: 28px;
+  }
+
+  .formActive {
+    margin-bottom: 0;
   }
 
   .inputSearch {
@@ -299,13 +308,38 @@
     gap: 8px;
   }
 
-  .radioBox {
+  .inputWrapperTablet {
+    position: relative;
+    display: flex;
     flex-direction: column;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .radioBox {
     margin-top: 0;
     margin-bottom: 0;
   }
 
   .iconArrow {
     left: 120px;
+  }
+
+  .iconArrowModal {
+    left: 160px;
+  }
+
+  .irregularText {
+    display: none;
+  }
+
+  .irregularTextTablet {
+    display: block;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2em;
+    width: 240px;
+    margin-left: auto;
   }
 }
