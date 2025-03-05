@@ -46,6 +46,10 @@ export const Dashboard = ({ hide }) => {
       setAdd(true);
     }
   }, [location.state]);
+  console.log(
+    "Class applied:",
+    clsx(css.radioBoxModal, checkedModal === "irregular" && css.radioBoxActive)
+  );
 
   return (
     <div className={css.dashboard}>
@@ -228,7 +232,7 @@ export const Dashboard = ({ hide }) => {
             </p>
             <div className={css.inputWrapperTablet}>
               <select
-                className={css.inputModal}
+                className={css.inputModalSelect}
                 name="Categories"
                 id="Categories"
                 {...register("category")}
@@ -253,8 +257,8 @@ export const Dashboard = ({ hide }) => {
                 <div className={css.radioWrapper}>
                   <div
                     className={clsx(
-                      css.radioBox,
-                      checkedModal !== "regular" && css.radioBoxActive
+                      css.radioBoxModal,
+                      checkedModal === "irregular" && css.radioBoxActive
                     )}
                   >
                     <div
@@ -340,22 +344,37 @@ export const Dashboard = ({ hide }) => {
                 </div>
               )}
             </div>
-            <div className={css.titleText}>
-              <img src={uaImg} alt="ukrainian flag" />
-              <p>Ukraine</p>
+            <div className={css.formWrapper}>
+              <div className={css.labelModal}>
+                <div className={css.titleText}>
+                  <img src={uaImg} alt="ukrainian flag" />
+                  <p>Ukraine</p>
+                </div>
+                <input
+                  className={css.inputModal}
+                  {...register("uaword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img src={uaImg} alt="ukrainian flag" />
+                  <p>Ukraine</p>
+                </div>
+              </div>
+
+              <div className={css.labelModal}>
+                <div className={css.titleText}>
+                  <img src={ukImg} alt="uk flag" />
+                  <p>English</p>
+                </div>
+                <input
+                  className={css.inputModal}
+                  {...register("ukword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img src={ukImg} alt="uk flag" />
+                  <p>English</p>
+                </div>
+              </div>
             </div>
-            <input
-              className={css.inputModal}
-              {...register("uaword", { required: true })}
-            />
-            <div className={css.titleText}>
-              <img src={ukImg} alt="uk flag" />
-              <p>English</p>
-            </div>
-            <input
-              className={css.inputModal}
-              {...register("ukword", { required: true })}
-            />
             <div className={css.buttonBox}>
               <button
                 className={css.buttonAdd}

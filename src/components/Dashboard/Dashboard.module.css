@@ -123,9 +123,26 @@
   background-color: transparent;
   color: var(--white);
   appearance: none;
+  outline: none;
+  padding: 12px 24px;
+}
+
+.inputModalSelect {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  height: 48px;
+  background-color: transparent;
+  color: var(--white);
+  appearance: none;
   margin-bottom: 8px;
   outline: none;
   padding: 12px 24px;
+}
+
+.inputModalSelect option {
+  color: black;
+  text-transform: capitalize;
 }
 
 .inputModal option {
@@ -140,7 +157,7 @@
 .iconArrowModal {
   position: absolute;
   top: 14px;
-  right: 24px;
+  left: 267px;
   fill: none;
   width: 20px;
   height: 20px;
@@ -155,6 +172,10 @@
   color: var(--white);
 }
 
+.titleTextModal {
+  display: none;
+}
+
 .radioBox {
   display: flex;
   gap: 16px;
@@ -163,8 +184,16 @@
   margin-bottom: 16px;
 }
 
+.radioBoxModal {
+  display: flex;
+  gap: 16px;
+  height: 18px;
+  margin-bottom: 32px;
+}
+
 .radioBoxActive {
-  margin-bottom: 0;
+  display: flex;
+  margin-bottom: 8px;
 }
 
 .radioBoxItem {
@@ -256,6 +285,13 @@
   outline: none;
 }
 
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
 @media screen and (min-width: 768px) {
   .dashboard {
     padding: 32px;
@@ -266,7 +302,7 @@
     padding: 48px 64px;
   }
 
-  .inputModal {
+  .inputModalSelect {
     width: 204px;
   }
 
@@ -321,6 +357,18 @@
     margin-bottom: 0;
   }
 
+  .radioBoxModal {
+    display: flex;
+    gap: 16px;
+    height: 18px;
+    margin-bottom: 38px;
+  }
+
+  .radioBoxActive {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
   .iconArrow {
     left: 120px;
   }
@@ -341,5 +389,39 @@
     line-height: 1.2em;
     width: 240px;
     margin-left: auto;
+  }
+
+  .irregularTextModal {
+    display: block;
+    color: var(--white);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 38;
+  }
+
+  .titleText {
+    display: none;
+  }
+
+  .titleTextModal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .labelModal {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .inputModal {
+    width: 354px;
+  }
+
+  .formWrapper {
+    gap: 18px;
   }
 }
