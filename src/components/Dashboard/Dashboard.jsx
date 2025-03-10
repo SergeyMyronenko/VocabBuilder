@@ -46,10 +46,6 @@ export const Dashboard = ({ hide }) => {
       setAdd(true);
     }
   }, [location.state]);
-  console.log(
-    "Class applied:",
-    clsx(css.radioBoxModal, checkedModal === "irregular" && css.radioBoxActive)
-  );
 
   return (
     <div className={css.dashboard}>
@@ -232,7 +228,10 @@ export const Dashboard = ({ hide }) => {
             </p>
             <div className={css.inputWrapperTablet}>
               <select
-                className={css.inputModalSelect}
+                className={clsx(
+                  css.inputModalSelect,
+                  modalCategory === "verb" && css.inputModalSelectTablet
+                )}
                 name="Categories"
                 id="Categories"
                 {...register("category")}

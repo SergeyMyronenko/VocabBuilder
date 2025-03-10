@@ -135,7 +135,7 @@
   background-color: transparent;
   color: var(--white);
   appearance: none;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   outline: none;
   padding: 12px 24px;
 }
@@ -152,6 +152,10 @@
 
 .inputModal:first-letter {
   text-transform: uppercase;
+}
+
+.inputWrapperTablet {
+  position: relative;
 }
 
 .iconArrowModal {
@@ -304,6 +308,11 @@
 
   .inputModalSelect {
     width: 204px;
+    margin-bottom: 32px;
+  }
+
+  .inputModalSelectTablet {
+    margin-bottom: 0;
   }
 
   .form {
@@ -345,7 +354,6 @@
   }
 
   .inputWrapperTablet {
-    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 0;

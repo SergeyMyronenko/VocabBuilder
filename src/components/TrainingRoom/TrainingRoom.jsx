@@ -15,7 +15,7 @@ import { p } from "@table-library/react-table-library/styles-492c6342";
 export const TrainingRoom = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([
-    { id: 1, name: "apple", translation: "яблуко", progress: 50 },
+    // { id: 1, name: "apple", translation: "яблуко", progress: 50 },
   ]);
   const [incorrectWords, setIncorrectWods] = useState([]);
   const { register, handleSubmit } = useForm();
@@ -62,7 +62,13 @@ export const TrainingRoom = () => {
 
           <form onSubmit={handleSubmit}>
             <div className={css.uaBlock}>
-              <p>Введіть переклад</p>
+              <div className={css.titleWrapper}>
+                <p>Введіть переклад</p>
+                <div className={css.ukraineTablet}>
+                  <img src={iconUa} alt="icon ukrainian flag" />
+                  <p>Ukraine</p>
+                </div>
+              </div>
               <input
                 type="text"
                 className={css.input}
@@ -85,7 +91,13 @@ export const TrainingRoom = () => {
               </div>
             </div>
             <div className={css.ukBlock}>
-              <p>Break in</p>
+              <div className={css.titleWrapper}>
+                <p>Break in</p>
+                <div className={css.englishTablet}>
+                  <img src={iconUk} alt="icon united kingdom flag" />
+                  <p>English</p>
+                </div>
+              </div>
               <input
                 className={css.input}
                 type="text"
@@ -93,7 +105,7 @@ export const TrainingRoom = () => {
                 {...register("wordUk", { min: 2 })}
               />
               <div className={css.english}>
-                <img src={iconUk} alt="icon ukrainian flag" />
+                <img src={iconUk} alt="icon united kingdom flag" />
                 <p>English</p>
               </div>
             </div>
