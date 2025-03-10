@@ -105,6 +105,12 @@
   padding: 12px 24px;
 }
 
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
 .buttonModal {
   display: flex;
   align-items: center;
@@ -141,7 +147,6 @@
 .titleText {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   gap: 8px;
 }
 
@@ -152,11 +157,9 @@
   height: 48px;
   background-color: transparent;
   color: var(--white);
-  margin-bottom: 16px;
 }
 
 .buttonBox {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -165,10 +168,11 @@
 .buttonSave {
   background-color: var(--white);
   border-radius: 30px;
-  padding: 12px 60px;
+  padding: 12px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5em;
+  width: 158px;
 }
 
 .buttonCancel {
@@ -177,6 +181,37 @@
   padding: 12px 45px;
   background-color: transparent;
   color: var(--white);
+  width: 145px;
+}
+
+.editModal {
+  border-radius: 16px;
+  background-color: var(--accent-color);
+  width: 343px;
+  padding: 48px 16px;
+  position: relative;
+}
+
+.titleText {
+  margin-bottom: 8px;
+}
+
+.titleTextModal {
+  display: none;
+}
+
+.labelModal {
+  margin-bottom: 16px;
+}
+
+.labelModal:last-child {
+  margin-bottom: 0;
+}
+
+.country {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -207,9 +242,19 @@
     text-align: left;
   }
 
+  .tableRow {
+    display: flex;
+  }
+
+  .flagTAblet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .table .tableRow {
     font-size: 18px;
-    padding: 22px;
+    padding: 22px 12px 22px 22px;
   }
 
   .tableRow:nth-child(1) {
@@ -240,5 +285,51 @@
 
   .title {
     display: flex;
+  }
+
+  .editModal {
+    width: 628px;
+    padding: 64px;
+  }
+
+  .formWrapper {
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .labelModal {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .titleText {
+    display: none;
+  }
+
+  .titleTextModal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .imageModal {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input {
+    width: 354px;
+    margin-bottom: 0;
+  }
+
+  .buttonSave {
+    width: 245px;
+    padding: 14px;
+  }
+
+  .buttonCancel {
+    width: 245px;
+    padding: 14px;
   }
 }

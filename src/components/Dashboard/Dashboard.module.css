@@ -21,7 +21,6 @@
   position: absolute;
   top: 14px;
   right: 24px;
-  fill: none;
   width: 20px;
   height: 20px;
   fill: var(--text-color);
@@ -124,9 +123,26 @@
   background-color: transparent;
   color: var(--white);
   appearance: none;
-  margin-bottom: 8px;
   outline: none;
   padding: 12px 24px;
+}
+
+.inputModalSelect {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  height: 48px;
+  background-color: transparent;
+  color: var(--white);
+  appearance: none;
+  margin-bottom: 16px;
+  outline: none;
+  padding: 12px 24px;
+}
+
+.inputModalSelect option {
+  color: black;
+  text-transform: capitalize;
 }
 
 .inputModal option {
@@ -138,10 +154,14 @@
   text-transform: uppercase;
 }
 
+.inputWrapperTablet {
+  position: relative;
+}
+
 .iconArrowModal {
   position: absolute;
   top: 14px;
-  right: 24px;
+  left: 267px;
   fill: none;
   width: 20px;
   height: 20px;
@@ -156,6 +176,10 @@
   color: var(--white);
 }
 
+.titleTextModal {
+  display: none;
+}
+
 .radioBox {
   display: flex;
   gap: 16px;
@@ -164,8 +188,16 @@
   margin-bottom: 16px;
 }
 
+.radioBoxModal {
+  display: flex;
+  gap: 16px;
+  height: 18px;
+  margin-bottom: 32px;
+}
+
 .radioBoxActive {
-  margin-bottom: 0;
+  display: flex;
+  margin-bottom: 8px;
 }
 
 .radioBoxItem {
@@ -216,6 +248,10 @@
   line-height: 1.2em;
 }
 
+.irregularTextTablet {
+  display: none;
+}
+
 .irregularTextModal {
   color: var(--white);
 }
@@ -244,11 +280,51 @@
   color: var(--white);
 }
 
+.addModal {
+  border-radius: 16px;
+  background-color: var(--accent-color);
+  width: 343px;
+  padding: 48px 16px;
+  position: relative;
+  outline: none;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
 @media screen and (min-width: 768px) {
+  .dashboard {
+    padding: 32px;
+  }
+
+  .addModal {
+    width: 628px;
+    padding: 48px 64px;
+  }
+
+  .inputModalSelect {
+    width: 204px;
+    margin-bottom: 32px;
+  }
+
+  .inputModalSelectTablet {
+    margin-bottom: 0;
+  }
+
   .form {
     margin-top: 80px;
     display: flex;
     gap: 8px;
+    max-width: 768px;
+    margin-bottom: 28px;
+  }
+
+  .formActive {
+    margin-bottom: 0;
   }
 
   .inputSearch {
@@ -268,5 +344,92 @@
   .text {
     margin-top: 0;
     font-size: 16px;
+  }
+
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .inputWrapperTablet {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .radioBox {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .radioBoxModal {
+    display: flex;
+    gap: 16px;
+    height: 18px;
+    margin-bottom: 38px;
+  }
+
+  .radioBoxActive {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .iconArrow {
+    left: 120px;
+  }
+
+  .iconArrowModal {
+    left: 160px;
+  }
+
+  .irregularText {
+    display: none;
+  }
+
+  .irregularTextTablet {
+    display: block;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2em;
+    width: 240px;
+    margin-left: auto;
+  }
+
+  .irregularTextModal {
+    display: block;
+    color: var(--white);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 38;
+  }
+
+  .titleText {
+    display: none;
+  }
+
+  .titleTextModal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .labelModal {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .inputModal {
+    width: 354px;
+  }
+
+  .formWrapper {
+    gap: 18px;
   }
 }

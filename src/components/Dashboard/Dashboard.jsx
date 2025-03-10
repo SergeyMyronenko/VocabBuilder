@@ -11,18 +11,22 @@ import clsx from "clsx";
 export const Dashboard = ({ hide }) => {
   const [add, setAdd] = useState(false);
   const [checked, setChecked] = useState("regular");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [checkedModal, setCheckedModal] = useState("regular");
+  const [selectedCategory, setSelectedCategory] = useState("categories");
+  const [modalCategory, setModalCategory] = useState("verb");
 
   const { register, handleSubmit } = useForm();
   const location = useLocation();
 
   const handleRadioChange = (value) => {
-    setChecked(value);
+    if (add === false) {
+      setChecked(value);
+    }
+    setCheckedModal(value);
   };
 
   const handleOpen = () => {
     setAdd(true);
-    setSelectedCategory("verb");
   };
 
   const handleClose = () => {
@@ -33,6 +37,10 @@ export const Dashboard = ({ hide }) => {
     setSelectedCategory(e.target.value);
   };
 
+  const handleModalCategory = (e) => {
+    setModalCategory(e.target.value);
+  };
+
   useEffect(() => {
     if (location.state?.openAddWordModal) {
       setAdd(true);
@@ -41,7 +49,9 @@ export const Dashboard = ({ hide }) => {
 
   return (
     <div className={css.dashboard}>
-      <form className={css.form}>
+      <form
+        className={clsx(css.form, checked === "irregular" && css.formActive)}
+      >
         <div className={css.inputWrapper}>
           <input
             className={`${css.input} ${css.inputSearch}`}
@@ -59,7 +69,6 @@ export const Dashboard = ({ hide }) => {
             name="CategoriesModal"
             id="CategoriesModal"
             {...register("categoryModal")}
-            defaultValue="categories"
             onChange={handleSelectCategory}
           >
             <option value="">Categories</option>
@@ -163,6 +172,11 @@ export const Dashboard = ({ hide }) => {
           )}
         </div>
       </form>
+      {checked === "irregular" && (
+        <p className={css.irregularTextTablet}>
+          Such data must be entered in the format I-form II-form III-form.
+        </p>
+      )}
       <div className={css.studyTablet}>
         <p
           className={clsx(css.text, selectedCategory === "verb" && css.textOff)}
@@ -181,7 +195,7 @@ export const Dashboard = ({ hide }) => {
 
           <div className={css.wordBoxText}>
             <p className={css.titleMobail}>Train oneself</p>
-            <Link to="/training">
+            <Link to="/Vocab-builder/training">
               <svg className={css.iconWordBox}>
                 <use href="/Vocab-builder/sprite.svg#icon-arrow-right"></use>
               </svg>
@@ -202,16 +216,7 @@ export const Dashboard = ({ hide }) => {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            borderRadius: "16px",
-            backgroundColor: "var(--accent-color)",
-            width: "343px",
-            padding: "48px 16px",
-            position: "relative",
-            outline: "none",
-          }}
-        >
+        <Box className={css.addModal}>
           <form onSubmit={handleSubmit}>
             <svg className={css.modalClose} onClick={handleClose}>
               <use href={`${sprite}#icon-close`}></use>
@@ -221,14 +226,16 @@ export const Dashboard = ({ hide }) => {
               Adding a new word to the dictionary is an important step in
               enriching the language base and expanding the vocabulary.
             </p>
-            <div className={css.inputWrapper}>
+            <div className={css.inputWrapperTablet}>
               <select
-                className={css.inputModal}
+                className={clsx(
+                  css.inputModalSelect,
+                  modalCategory === "verb" && css.inputModalSelectTablet
+                )}
                 name="Categories"
                 id="Categories"
                 {...register("category")}
-                defaultValue="verb"
-                onChange={handleSelectCategory}
+                onChange={handleModalCategory}
               >
                 <option value="verb">Verb</option>
                 <option value="participle">Participle</option>
@@ -245,12 +252,12 @@ export const Dashboard = ({ hide }) => {
               <svg className={css.iconArrowModal}>
                 <use href="/Vocab-builder/sprite.svg#icon-arrow-down"></use>
               </svg>
-              {selectedCategory === "verb" && (
+              {modalCategory === "verb" && (
                 <div className={css.radioWrapper}>
                   <div
                     className={clsx(
-                      css.radioBox,
-                      checked !== "regular" && css.radioBoxActive
+                      css.radioBoxModal,
+                      checkedModal === "irregular" && css.radioBoxActive
                     )}
                   >
                     <div
@@ -261,7 +268,7 @@ export const Dashboard = ({ hide }) => {
                         <svg className={css.radioBpxPointModal}>
                           <use
                             href={`${sprite}${
-                              checked === "regular"
+                              checkedModal === "regular"
                                 ? "#icon-checked-radio"
                                 : "#icon-empty-radio"
                             }`}
@@ -274,7 +281,7 @@ export const Dashboard = ({ hide }) => {
                         id="regular"
                         name="verb"
                         value="regular"
-                        checked={checked === "regular"}
+                        checked={checkedModal === "regular"}
                         onChange={() => handleRadioChange("regular")}
                       />
                       <label
@@ -295,7 +302,7 @@ export const Dashboard = ({ hide }) => {
                         <svg className={css.radioBpxPointModal}>
                           <use
                             href={`${sprite}${
-                              checked === "irregular"
+                              checkedModal === "irregular"
                                 ? "#icon-checked-radio"
                                 : "#icon-empty-radio"
                             }`}
@@ -308,7 +315,7 @@ export const Dashboard = ({ hide }) => {
                         id="irregular"
                         name="verb"
                         value="irregular"
-                        checked={checked === "irregular"}
+                        checked={checkedModal === "irregular"}
                         onChange={() => handleRadioChange("irregular")}
                       />
                       <label
@@ -322,7 +329,7 @@ export const Dashboard = ({ hide }) => {
                       </label>
                     </div>
                   </div>
-                  {checked === "irregular" && (
+                  {checkedModal === "irregular" && (
                     <p
                       className={clsx(
                         css.irregularText,
@@ -336,22 +343,37 @@ export const Dashboard = ({ hide }) => {
                 </div>
               )}
             </div>
-            <div className={css.titleText}>
-              <img src={uaImg} alt="ukrainian flag" />
-              <p>Ukraine</p>
+            <div className={css.formWrapper}>
+              <div className={css.labelModal}>
+                <div className={css.titleText}>
+                  <img src={uaImg} alt="ukrainian flag" />
+                  <p>Ukraine</p>
+                </div>
+                <input
+                  className={css.inputModal}
+                  {...register("uaword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img src={uaImg} alt="ukrainian flag" />
+                  <p>Ukraine</p>
+                </div>
+              </div>
+
+              <div className={css.labelModal}>
+                <div className={css.titleText}>
+                  <img src={ukImg} alt="uk flag" />
+                  <p>English</p>
+                </div>
+                <input
+                  className={css.inputModal}
+                  {...register("ukword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img src={ukImg} alt="uk flag" />
+                  <p>English</p>
+                </div>
+              </div>
             </div>
-            <input
-              className={css.inputModal}
-              {...register("uaword", { required: true })}
-            />
-            <div className={css.titleText}>
-              <img src={ukImg} alt="uk flag" />
-              <p>English</p>
-            </div>
-            <input
-              className={css.inputModal}
-              {...register("ukword", { required: true })}
-            />
             <div className={css.buttonBox}>
               <button
                 className={css.buttonAdd}

@@ -34,7 +34,7 @@ export const RegisterForm = () => {
         </button>
       </form>
 
-      <a className={css.link} href="Vocab-builder/login">
+      <a className={css.link} href="/Vocab-builder/login">
         Log In
       </a>
     </div>

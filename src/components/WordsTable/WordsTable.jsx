@@ -139,12 +139,16 @@ export const WordsTable = ({ arrowOn }) => {
           <TableHead className={css.title}>
             <TableRow>
               <TableCell className={css.tableRow}>
-                <span>Word</span>
-                {/* <img src={uaImg} alt="icon ukrainian flag" /> */}
+                <div className={css.flagTAblet}>
+                  <span>Word</span>
+                  <img src={ukImg} alt="icon uk flag " />
+                </div>
               </TableCell>
               <TableCell className={css.tableRow}>
-                <span>Translation</span>
-                {/* <img src={ukImg} alt="icon uk flag" /> */}
+                <div className={css.flagTAblet}>
+                  <span>Translation</span>
+                  <img src={uaImg} alt="icon ukrainian flag" />
+                </div>
               </TableCell>
               <TableCell className={css.tableRowTablet}>Category</TableCell>
               <TableCell className={css.tableRow}>Progress</TableCell>
@@ -243,41 +247,49 @@ export const WordsTable = ({ arrowOn }) => {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            borderRadius: "16px",
-            backgroundColor: "var(--accent-color)",
-            width: "343px",
-            padding: "48px 16px",
-            position: "relative",
-          }}
-        >
+        <Box className={css.editModal}>
           <form onSubmit={handleSubmit}>
             <svg className={css.modalClose} onClick={handleClose}>
               <use href={`${sprite}#icon-close`}></use>
             </svg>
-            <div className={css.titleText}>
-              <img src={uaImg} alt="ukrainian flag" />
-              <p>Ukraine</p>
+            <div className={css.formWrapper}>
+              <div className={css.titleText}>
+                <img src={uaImg} alt="ukrainian flag" />
+                <p className={css.country}>Ukraine</p>
+              </div>
+              <div className={css.labelModal}>
+                <input
+                  className={css.input}
+                  {...register("uaword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img
+                    className={css.imageModal}
+                    src={uaImg}
+                    alt="ukrainian flag"
+                  />
+                  <p className={css.country}>Ukraine</p>
+                </div>
+              </div>
+
+              <div className={css.titleText}>
+                <img src={ukImg} alt="uk flag" />
+                <p className={css.country}>English</p>
+              </div>
+              <div className={css.labelModal}>
+                <input
+                  className={css.input}
+                  {...register("ukword", { required: true })}
+                />
+                <div className={css.titleTextModal}>
+                  <img src={ukImg} alt="uk flag" />
+                  <p className={css.country}>English</p>
+                </div>
+              </div>
             </div>
-            <input
-              className={css.input}
-              {...register("uaword", { required: true })}
-            />
-            <div className={css.titleText}>
-              <img src={ukImg} alt="uk flag" />
-              <p>English</p>
-            </div>
-            <input
-              className={css.input}
-              {...register("ukword", { required: true })}
-            />
+
             <div className={css.buttonBox}>
-              <button
-                className={css.buttonSave}
-                type="submit
-              "
-              >
+              <button className={css.buttonSave} type="submit">
                 Save
               </button>
               <button
