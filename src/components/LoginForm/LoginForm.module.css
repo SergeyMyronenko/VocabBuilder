@@ -43,6 +43,30 @@
   color: var(--link);
 }
 
+.iconEyeOff {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  fill: none;
+  stroke: black;
+  width: 20px;
+  height: 20px;
+}
+
+.iconEyeOn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  fill: none;
+  stroke: black;
+  width: 20px;
+  height: 20px;
+}
+
+.wrapperForIcon {
+  position: relative;
+}
+
 @media screen and (min-width: 768px) {
   .form {
     gap: 18px;

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import css from "./LoginForm.module.css";
+import sprite from "/public/sprite.svg";
 
 export const LoginForm = () => {
   const {
@@ -17,12 +18,20 @@ export const LoginForm = () => {
           placeholder="Email"
         />
         {errors.Email && <p>Email is required</p>}
-        <input
-          className={css.input}
-          {...register("Password", { required: true })}
-          placeholder="Password"
-        />
-        {errors.Password && <p>Password is required</p>}
+        <div className={css.wrapperForIcon}>
+          <input
+            className={css.input}
+            {...register("Password", { required: true })}
+            placeholder="Password"
+          />
+          <svg className={css.iconEyeOff}>
+            <use href={`${sprite}#icon-eye-off`}></use>
+          </svg>
+          {/* <svg className={css.iconEyeOn}>
+            <use href={`${sprite}#icon-eye`}></use>
+          </svg> */}
+          {errors.Password && <p>Password is required</p>}
+        </div>
         <button className={css.button} type="submit">
           Login
         </button>

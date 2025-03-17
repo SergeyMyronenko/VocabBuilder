@@ -1,5 +1,5 @@
 import css from "./LoginPage.module.css";
-import image from "../../image/illustration.jpg";
+import image from "../../image/illustration.png";
 import imageDesktop from "../../image/illustration-desktop.png";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { useState } from "react";
@@ -14,7 +14,7 @@ export const LoginPage = () => {
     <div className={css.container}>
       <div className={css.desktopImage}>
         <picture className={css.image}>
-          <source srcSet={imageDesktop} media="(min-width: 1044px)" />
+          <source srcSet={imageDesktop} media="(min-width: 1440px)" />
           <img src={image} alt="Responsive" />
         </picture>
         <p className={css.text}>Word · Translation · Grammar · Progress</p>
