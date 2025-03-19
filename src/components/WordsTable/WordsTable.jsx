@@ -139,15 +139,19 @@ export const WordsTable = ({ arrowOn }) => {
           <TableHead className={css.title}>
             <TableRow>
               <TableCell className={css.tableRow}>
-                <div className={css.flagTAblet}>
+                <div className={css.flagTablet}>
                   <span>Word</span>
-                  <img src={ukImg} alt="icon uk flag " />
+                  <img className={css.ukImg} src={ukImg} alt="icon uk flag " />
                 </div>
               </TableCell>
               <TableCell className={css.tableRow}>
-                <div className={css.flagTAblet}>
+                <div className={css.flagTablet}>
                   <span>Translation</span>
-                  <img src={uaImg} alt="icon ukrainian flag" />
+                  <img
+                    className={css.uaImg}
+                    src={uaImg}
+                    alt="icon ukrainian flag"
+                  />
                 </div>
               </TableCell>
               <TableCell className={css.tableRowTablet}>Category</TableCell>

@@ -214,10 +214,21 @@
   font-size: 14px;
 }
 
+.ukImg {
+  display: none;
+}
+
+.uaImg {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
+  .tableComponent {
+    padding: 0 32px;
+  }
+
   .tableComponent .container {
     background-color: #fff;
-    width: 704px;
     margin: 0 auto;
     padding: 18px;
     border-radius: 15px;
@@ -246,10 +257,18 @@
     display: flex;
   }
 
-  .flagTAblet {
+  .flagTablet {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .ukImg {
+    display: block;
+  }
+
+  .uaImg {
+    display: block;
   }
 
   .table .tableRow {
@@ -266,7 +285,7 @@
   .tableRow:nth-child(4) {
     width: 122px;
   }
-  .tableRow:nth-child(5) {
+  .table .tableRow:nth-child(5) {
     width: 66px;
   }
 
@@ -331,5 +350,29 @@
   .buttonCancel {
     width: 245px;
     padding: 14px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .tableComponent .container {
+    width: 1024px;
+  }
+
+  .table .tableRow {
+    padding: 22px;
+  }
+
+  .tableRow:nth-child(1) {
+    display: table-cell;
+    width: 280px;
+  }
+  .tableRow:nth-child(2) {
+    width: 274px;
+  }
+  .tableRow:nth-child(4) {
+    width: 260px;
+  }
+  .tableRow:nth-child(5) {
+    width: 136px;
   }
 }
