@@ -15,7 +15,7 @@ import { p } from "@table-library/react-table-library/styles-492c6342";
 export const TrainingRoom = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([
-    // { id: 1, name: "apple", translation: "яблуко", progress: 50 },
+    { id: 1, name: "apple", translation: "яблуко", progress: 50 },
   ]);
   const [incorrectWords, setIncorrectWods] = useState([]);
   const { register, handleSubmit } = useForm();

@@ -4,10 +4,12 @@ import { UserBar } from "../UserBar/UserBar";
 import { UserNav } from "../UserNav/UserNav";
 import css from "./Header.module.css";
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(true);
+  const [selectedBtn, setSelectedBtn] = useState("Dictionary");
 
   const openModal = () => {
     setIsOpen(true);
@@ -17,10 +19,45 @@ export const Header = () => {
     setIsOpen(false);
   };
 
+  const selectButton = (value) => {
+    setSelectedBtn(value);
+  };
+
   return (
     <div className={css.headerBlock}>
       <div className={css.headerWrapper}>
         <MainLogo />
+        <nav className={css.headerNav}>
+          <ul className={css.headerNavList}>
+            <li
+              className={clsx(
+                css.navListItem,
+                selectedBtn === "Dictionary" && css.activeBtn
+              )}
+              onClick={() => selectButton("Dictionary")}
+            >
+              Dictionary
+            </li>
+            <li
+              className={clsx(
+                css.navListItem,
+                selectedBtn === "Recommend" && css.activeBtn
+              )}
+              onClick={() => selectButton("Recommend")}
+            >
+              Recommend
+            </li>
+            <li
+              className={clsx(
+                css.navListItem,
+                selectedBtn === "Training" && css.activeBtn
+              )}
+              onClick={() => selectButton("Training")}
+            >
+              Training
+            </li>
+          </ul>
+        </nav>
         {login && (
           <div className={css.navBlock}>
             <UserBar />

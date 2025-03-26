@@ -84,8 +84,36 @@
   fill: none;
 }
 
+.headerNav {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .headerWrapper {
     padding: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .headerNav {
+    display: block;
+  }
+  .headerNavList {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .navListItem {
+    border-radius: 15px;
+    padding: 12px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .activeBtn {
+    background-color: var(--accent-color);
+    color: var(--white);
   }
 }
