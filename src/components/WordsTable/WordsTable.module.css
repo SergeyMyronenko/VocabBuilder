@@ -13,7 +13,10 @@
 }
 
 .table .tableRowTablet {
-  display: none;
+  display: table-cell;
+  width: 99px;
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
 }
 
 .table .tableRow {
@@ -32,20 +35,21 @@
 }
 
 .table .bodyTableRowTablet {
-  display: none;
+  display: table-cell;
+  width: 99px;
 }
 
 .tableRow:nth-child(1) {
-  width: 82px;
+  width: 90px;
 }
 .tableRow:nth-child(2) {
   width: 116px;
 }
 .tableRow:nth-child(4) {
-  width: 95px;
+  display: none;
 }
 .tableRow:nth-child(5) {
-  width: 50px;
+  width: 38px;
 }
 
 .bodyTableRow:last-child {
@@ -57,16 +61,16 @@
 }
 
 .bodyTableRow:nth-child(3) {
-  text-align: center;
-  display: none;
+  width: 99px;
 }
 
 .bodyTableRow:nth-child(4) {
-  text-align: center;
+  display: none;
 }
 
 .bodyTableRow:nth-child(5) {
   text-align: center;
+  padding: 14px 9px;
 }
 
 .tableRow:last-child {
@@ -214,17 +218,27 @@
   font-size: 14px;
 }
 
+.ukImg {
+  display: none;
+}
+
+.uaImg {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
+  .tableComponent {
+    padding: 0 32px;
+  }
+
   .tableComponent .container {
     background-color: #fff;
-    width: 704px;
     margin: 0 auto;
     padding: 18px;
     border-radius: 15px;
   }
 
   .container .table {
-    width: auto;
     background-color: var(--white);
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -246,10 +260,18 @@
     display: flex;
   }
 
-  .flagTAblet {
+  .flagTablet {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .ukImg {
+    display: block;
+  }
+
+  .uaImg {
+    display: block;
   }
 
   .table .tableRow {
@@ -264,7 +286,7 @@
     width: 169px;
   }
   .tableRow:nth-child(4) {
-    width: 122px;
+    display: none;
   }
   .tableRow:nth-child(5) {
     width: 66px;
@@ -281,6 +303,10 @@
     font-weight: 500;
     font-size: 18px;
     text-align: left;
+  }
+
+  .bodyTableRow:nth-child(5) {
+    padding: 14px;
   }
 
   .title {
@@ -331,5 +357,37 @@
   .buttonCancel {
     width: 245px;
     padding: 14px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .tableComponent {
+    padding: 0 100px;
+  }
+
+  .table .tableRow {
+    font-size: 18px;
+    padding: 22px;
+  }
+
+  .table .tableRowTablet {
+    width: 260px;
+  }
+
+  .tableRow:nth-child(1) {
+    width: 280px;
+  }
+  .tableRow:nth-child(2) {
+    width: 274px;
+  }
+  .tableRow:nth-child(4) {
+    width: 254px;
+  }
+  .tableRow:nth-child(5) {
+    width: 136px;
+  }
+
+  .bodyTableRow:nth-child(4) {
+    text-align: start;
   }
 }

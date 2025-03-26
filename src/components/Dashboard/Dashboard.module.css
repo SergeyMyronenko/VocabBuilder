@@ -346,6 +346,12 @@
     font-size: 16px;
   }
 
+  .textLanguage {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+
   .inputWrapper {
     display: flex;
     align-items: center;
@@ -431,5 +437,19 @@
 
   .formWrapper {
     gap: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 100px 28px 100px;
+  }
+
+  .form {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
