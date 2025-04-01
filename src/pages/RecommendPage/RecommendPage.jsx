@@ -6,7 +6,7 @@ export const RecommendPage = () => {
   return (
     <div>
       <Dashboard hide={"hide"} />
-      <WordsTable arrowOn={"arrow"} />
+      <WordsTable arrowOn={"arrow"} rowTitle={"recommend"} />
       <WordsPagination />
     </div>
   );

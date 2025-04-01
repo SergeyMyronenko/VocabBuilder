@@ -46,8 +46,13 @@
   width: 116px;
 }
 .tableRow:nth-child(4) {
-  display: none;
+  width: 50px;
 }
+
+.tableRowRecommend:nth-child(4) {
+  width: 38px;
+}
+
 .tableRow:nth-child(5) {
   width: 38px;
 }
@@ -65,7 +70,13 @@
 }
 
 .bodyTableRow:nth-child(4) {
-  display: none;
+  width: 50px;
+}
+
+.bodyTableRowRecommend:nth-child(4) {
+  text-align: center;
+  width: 38px;
+  padding: 16px 9px;
 }
 
 .bodyTableRow:nth-child(5) {
@@ -88,6 +99,15 @@
 .button {
   background-color: var(--white);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.buttonTablet {
+  display: none;
 }
 
 .iconArrow {
@@ -282,14 +302,32 @@
   .tableRow:nth-child(1) {
     width: 160px;
   }
+
   .tableRow:nth-child(2) {
     width: 169px;
   }
   .tableRow:nth-child(4) {
-    display: none;
+    width: 148px;
   }
+
   .tableRow:nth-child(5) {
     width: 66px;
+  }
+
+  .tableRowRecommend:nth-child(1) {
+    width: 180px;
+  }
+
+  .tableRowRecommend:nth-child(2) {
+    width: 180px;
+  }
+
+  .tableRowRecommend:nth-child(3) {
+    width: 160px;
+  }
+
+  .tableRowRecommend:nth-child(4) {
+    width: 148px;
   }
 
   .table .bodyTableRow {
@@ -305,8 +343,26 @@
     text-align: left;
   }
 
+  .bodyTableRowRecommend:nth-child(4) {
+    padding: 16px;
+  }
+
   .bodyTableRow:nth-child(5) {
     padding: 14px;
+  }
+
+  .button {
+    display: none;
+  }
+
+  .buttonTablet {
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: 500;
+    font-size: 14px;
   }
 
   .title {
@@ -387,7 +443,37 @@
     width: 136px;
   }
 
+  .tableRowRecommend:nth-child(1) {
+    width: 372px;
+  }
+
+  .tableRowRecommend:nth-child(2) {
+    width: 364px;
+  }
+
+  .tableRowRecommend:nth-child(3) {
+    width: 260px;
+  }
+
+  .tableRowRecommend:nth-child(4) {
+    width: 208px;
+  }
+
   .bodyTableRow:nth-child(4) {
     text-align: start;
+  }
+
+  .table .bodyTableRowRecommend {
+    padding: 22px;
+  }
+
+  .bodyTableRowRecommend:nth-child(4) {
+    padding: 25px;
+  }
+
+  .buttonTablet {
+    flex-direction: row;
+    gap: 8px;
+    font-size: 16px;
   }
 }

@@ -29,41 +29,43 @@ export const Header = () => {
       <div className={css.headerWrapper}>
         <MainLogo />
         <nav className={css.headerNav}>
-          <ul className={css.headerNavList}>
-            <li onClick={() => selectButton("Dictionary")}>
-              <Link
-                to="/Vocab-builder/dictionary"
-                className={clsx(
-                  css.navListItem,
-                  selectedBtn === "Dictionary" && css.activeBtn
-                )}
-              >
-                Dictionary
-              </Link>
-            </li>
-            <li onClick={() => selectButton("Recommend")}>
-              <Link
-                to="/Vocab-builder/recommend"
-                className={clsx(
-                  css.navListItem,
-                  selectedBtn === "Recommend" && css.activeBtn
-                )}
-              >
-                Recommend
-              </Link>
-            </li>
-            <li onClick={() => selectButton("Training")}>
-              <Link
-                to="/Vocab-builder/training"
-                className={clsx(
-                  css.navListItem,
-                  selectedBtn === "Training" && css.activeBtn
-                )}
-              >
-                Training
-              </Link>
-            </li>
-          </ul>
+          {login && (
+            <ul className={css.headerNavList}>
+              <li onClick={() => selectButton("Dictionary")}>
+                <Link
+                  to="/Vocab-builder/dictionary"
+                  className={clsx(
+                    css.navListItem,
+                    selectedBtn === "Dictionary" && css.activeBtn
+                  )}
+                >
+                  Dictionary
+                </Link>
+              </li>
+              <li onClick={() => selectButton("Recommend")}>
+                <Link
+                  to="/Vocab-builder/recommend"
+                  className={clsx(
+                    css.navListItem,
+                    selectedBtn === "Recommend" && css.activeBtn
+                  )}
+                >
+                  Recommend
+                </Link>
+              </li>
+              <li onClick={() => selectButton("Training")}>
+                <Link
+                  to="/Vocab-builder/training"
+                  className={clsx(
+                    css.navListItem,
+                    selectedBtn === "Training" && css.activeBtn
+                  )}
+                >
+                  Training
+                </Link>
+              </li>
+            </ul>
+          )}
         </nav>
         {login && (
           <div className={css.navBlock}>

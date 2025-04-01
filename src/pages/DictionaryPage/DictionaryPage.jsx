@@ -6,7 +6,7 @@ export const DictionaryPage = () => {
   return (
     <div>
       <Dashboard />
-      <WordsTable />
+      <WordsTable rowTitle={"dictionary"} />
       <WordsPagination />
     </div>
   );
