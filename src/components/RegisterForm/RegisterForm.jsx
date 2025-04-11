@@ -1,34 +1,52 @@
 import css from "./RegisterForm.module.css";
 import { useForm } from "react-hook-form";
+import { registerUser } from "../../redux/auth/operations";
+import { useDispatch } from "react-redux";
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  const giveUserData = (data) => {
+    console.log(data);
+
+    const { name, email, password } = data;
+
+    dispatch(registerUser({ name, email, password }));
+  };
 
   return (
     <div className={css.wrapper}>
-      <form className={css.form} onSubmit={handleSubmit}>
+      <form className={css.form} onSubmit={handleSubmit(giveUserData)}>
         <input
           className={css.input}
-          {...register("Name", { required: true })}
+          {...register("name", { required: true })}
           placeholder="Name"
         />
-        {errors.Name && <p>Name is required</p>}
+        {errors.name && <p>Name is required</p>}
         <input
           className={css.input}
-          {...register("Email", { required: true })}
+          {...register("email", { required: true })}
           placeholder="Email"
         />
-        {errors.Email && <p>Email is required</p>}
+        {errors.email && <p>Email is required</p>}
         <input
           className={css.input}
-          {...register("Password", { required: true })}
+          {...register("password", { required: true })}
           placeholder="Password"
         />
-        {errors.Password && <p>Password is required</p>}
+        {errors.password && <p>Password is required</p>}
         <button className={css.button} type="submit">
           Register
         </button>
