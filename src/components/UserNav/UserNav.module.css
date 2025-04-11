@@ -15,3 +15,34 @@
   height: 22px;
   stroke: var(--text-color);
 }
+
+.logout {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .logout {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    height: 24px;
+  }
+
+  .logoutLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: var(--text-color);
+  }
+
+  .button {
+    display: none;
+  }
+
+  .iconOut {
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-color);
+    fill: none;
+  }
+}

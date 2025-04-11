@@ -23,7 +23,7 @@
   display: block;
   background-color: var(--accent-color);
   height: 100vh;
-  padding: 16px;
+  padding: 0 16px;
   background-image: url("../../image/illustration-modal.png");
   background-repeat: no-repeat;
   background-position: bottom;
@@ -37,13 +37,14 @@
 }
 
 .modalHeader {
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .linkList {
-  margin-top: 16px;
+  margin-top: 166px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -52,20 +53,19 @@
 }
 
 .linkItem {
-  border-radius: 15px;
-  padding: 12px 20px;
   font-weight: 500;
   font-size: 14px;
   color: var(--white);
 }
 
 .linkItemActive {
+  display: block;
   border-radius: 15px;
   padding: 12px 20px;
   background-color: var(--white);
   font-weight: 500;
   font-size: 14px;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 .logout {
@@ -90,11 +90,19 @@
 
 @media screen and (min-width: 768px) {
   .headerWrapper {
-    padding: 24px;
+    padding: 20px 32px;
+  }
+
+  .modal {
+    width: 300px;
+    background-image: url("../../image/illustration-tablet.png");
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .headerWrapper {
+    padding: 20px 100px;
+  }
   .headerNav {
     display: block;
   }
@@ -105,11 +113,13 @@
   }
 
   .navListItem {
+    display: block;
     border-radius: 15px;
     padding: 12px 20px;
     font-weight: 500;
     font-size: 14px;
     cursor: pointer;
+    color: var(--text-color);
   }
 
   .activeBtn {

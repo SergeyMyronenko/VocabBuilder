@@ -19,8 +19,9 @@ import { ProgressBar } from "../ProgressBar/ProgressBar";
 import sprite from "/public/sprite.svg";
 import uaImg from "../../image/ukraine.png";
 import ukImg from "../../image/united-kingdom.png";
+import clsx from "clsx";
 
-export const WordsTable = ({ arrowOn }) => {
+export const WordsTable = ({ arrowOn, rowTitle }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
@@ -138,13 +139,23 @@ export const WordsTable = ({ arrowOn }) => {
         <Table className={css.table}>
           <TableHead className={css.title}>
             <TableRow>
-              <TableCell className={css.tableRow}>
+              <TableCell
+                className={clsx(
+                  css.tableRow,
+                  rowTitle === "recommend" && css.tableRowRecommend
+                )}
+              >
                 <div className={css.flagTablet}>
                   <span>Word</span>
                   <img className={css.ukImg} src={ukImg} alt="icon uk flag " />
                 </div>
               </TableCell>
-              <TableCell className={css.tableRow}>
+              <TableCell
+                className={clsx(
+                  css.tableRow,
+                  rowTitle === "recommend" && css.tableRowRecommend
+                )}
+              >
                 <div className={css.flagTablet}>
                   <span>Translation</span>
                   <img
@@ -154,31 +165,83 @@ export const WordsTable = ({ arrowOn }) => {
                   />
                 </div>
               </TableCell>
-              <TableCell className={css.tableRowTablet}>Category</TableCell>
-              <TableCell className={css.tableRow}>Progress</TableCell>
-              <TableCell className={css.tableRow}></TableCell>
+              {rowTitle === "recommend" && (
+                <TableCell
+                  className={clsx(
+                    css.tableRow,
+                    rowTitle === "recommend" && css.tableRowRecommend
+                  )}
+                >
+                  Category
+                </TableCell>
+              )}
+              {rowTitle === "dictionary" && (
+                <TableCell
+                  className={clsx(
+                    css.tableRow,
+                    rowTitle === "recommend" && css.tableRowRecommend
+                  )}
+                >
+                  Progress
+                </TableCell>
+              )}
+              <TableCell
+                className={clsx(
+                  css.tableRow,
+                  rowTitle === "recommend" && css.tableRowRecommend
+                )}
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody className={css.bodyTable}>
             {data.map((item) => (
               <TableRow key={item.id} className={css.rowList}>
-                <TableCell className={css.bodyTableRow}>{item.name}</TableCell>
-                <TableCell className={css.bodyTableRow}>
+                <TableCell
+                  className={clsx(
+                    css.bodyTableRow,
+                    rowTitle === "recommend" && css.bodyTableRowRecommend
+                  )}
+                >
+                  {item.name}
+                </TableCell>
+                <TableCell
+                  className={clsx(
+                    css.bodyTableRow,
+                    rowTitle === "recommend" && css.bodyTableRowRecommend
+                  )}
+                >
                   {item.translation}
                 </TableCell>
-                <TableCell className={css.bodyTableRow}>
-                  {item.category}
-                </TableCell>
-                <TableCell className={css.bodyTableRow}>
-                  <ProgressBar value={item.progress} />
-                </TableCell>
-                <TableCell className={css.bodyTableRow}>
+                {rowTitle === "recommend" && (
+                  <TableCell className={css.bodyTableRow}>
+                    {item.category}
+                  </TableCell>
+                )}
+                {rowTitle === "dictionary" && (
+                  <TableCell className={css.bodyTableRow}>
+                    <ProgressBar value={item.progress} />
+                  </TableCell>
+                )}
+                <TableCell
+                  className={clsx(
+                    css.bodyTableRow,
+                    rowTitle === "recommend" && css.bodyTableRowRecommend
+                  )}
+                >
                   {arrowOn === "arrow" ? (
-                    <button className={css.button}>
-                      <svg className={css.iconArrow}>
-                        <use href={`${sprite}#icon-arrow-right`}></use>
-                      </svg>
-                    </button>
+                    <div>
+                      <button className={css.buttonTablet}>
+                        Add to dictionary
+                        <svg className={css.iconArrow}>
+                          <use href={`${sprite}#icon-arrow-right`}></use>
+                        </svg>
+                      </button>
+                      <button className={css.button}>
+                        <svg className={css.iconArrow}>
+                          <use href={`${sprite}#icon-arrow-right`}></use>
+                        </svg>
+                      </button>
+                    </div>
                   ) : (
                     <button
                       className={css.button}
